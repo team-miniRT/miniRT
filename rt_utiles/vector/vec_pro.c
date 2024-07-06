@@ -6,7 +6,7 @@
 /*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 13:56:34 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/06/27 15:04:32 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/07/06 22:40:44 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ double	vec_inner_pro(t_vec vec1, t_vec vec2)
 {
 	return (vec1.x * vec2.x + vec1.y * vec2.y + vec1.z * vec2.z);
 }
-
 
 t_vec	vec_outer_pro(t_vec vec, t_vec vec2)
 {
