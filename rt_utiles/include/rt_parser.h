@@ -6,7 +6,6 @@
 /*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 19:58:15 by jjhang            #+#    #+#             */
-/*   Updated: 2024/07/06 22:38:38 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +47,10 @@ int			is_valid_file(int argc, char *argv[]);
 t_color		*get_ambient_lightning(char **line);
 t_camera	*get_camera_data(char **line);
 t_object	*get_light_data(t_container **data, char **line);
-t_object	*get_sphere_data(char **line);
+t_object	*get_sphere_data(t_container **data, char **line);
+t_object	*get_plane_data(t_container **data, char **line);
+t_object	*get_cylinder_data(t_container **data, char **line);
+void		edit_objects_vector(t_container *data);
 /* utiles */
 t_color		get_rgb_color(char *err_point, char **line);
 t_point		get_3d_coordinates(char *err_point, char **line);
@@ -56,6 +58,7 @@ t_vec		get_vector(char *err_point, char **line);
 double		get_ratio(char **line);
 double		get_meter(char **line);
 void		skip_white_space(char **line);
+void		edit_objects_vector(t_container *data);
 int			rt_error_handler(char *filename, char *error_msg, int error_code);
 t_object	*new_object(t_object_type type, void *element, t_color reflect);
 t_object	*get_t_object(t_object_type type, \

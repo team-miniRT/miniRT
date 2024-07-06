@@ -6,7 +6,7 @@
 /*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 05:59:52 by jjhang            #+#    #+#             */
-/*   Updated: 2024/07/05 16:39:15 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/06 22:42:10 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ t_object	*get_light_data(t_container **data, char **line)
 	t_object	*obj;
 	t_color		reflect;
 
-	if (**line != 'L')
-		return (NULL);
 	(*line)++;
 	light = (t_light *)ft_calloc(1, sizeof(t_light));
 	if (light == NULL)
