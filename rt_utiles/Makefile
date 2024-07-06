@@ -6,7 +6,7 @@
 #    By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 00:52:49 by jjhang            #+#    #+#              #
-#    Updated: 2024/07/06 22:52:59 by jjhang           ###   ########.fr        #
+#    Updated: 2024/07/06 23:49:32 by jjhang           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,8 @@ OBJ_DIR = obj
 HEADER_DIR = include
 LIBFT_DIR = libft
 
-PARSER_FILES = get_ambient_lightning.c \
+PARSER_FILES = edit_objects_vector.c \
+			get_ambient_lightning.c \
 			get_camera_data.c \
 			get_cylinder_data.c \
 			get_light_data.c \
