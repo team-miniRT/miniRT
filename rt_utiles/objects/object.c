@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   object.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 20:39:30 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/04 11:41:21 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/06 22:39:16 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void	object_addback(t_object **list, t_object *new)
 		cur = cur->next;
 	cur->next = new;
 }
-
 
 t_object	*object_last(t_object *list)
 {

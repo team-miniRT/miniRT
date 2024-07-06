@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:43:10 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/01 18:28:47 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/06 22:50:38 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ t_ray	ray_primary(t_camera *cam, double x_weight, double y_weight)
 	t_ray	ray;
 
 	ray.orig = cam->orig;
-	ray.dir = vec_unit((vec_minus_vec(vec_plus_vec(vec_plus_vec(cam->left_bottom, \
-	vec_mult_scal(cam->horizontal, x_weight)), \
+	ray.dir = vec_unit((vec_minus_vec(vec_plus_vec(\
+	vec_plus_vec(cam->left_bottom, vec_mult_scal(cam->horizontal, x_weight)), \
 	vec_mult_scal(cam->vertical, y_weight)), cam->orig)));
 	return (ray);
 }
