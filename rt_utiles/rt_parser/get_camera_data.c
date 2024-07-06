@@ -6,7 +6,7 @@
 /*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 04:40:22 by jjhang            #+#    #+#             */
-/*   Updated: 2024/07/05 16:22:26 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/06 22:40:43 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ t_camera	*get_camera_data(char **line)
 	t_vec		vec;
 	int			fov;
 
-	if (**line != 'C')
-		return (NULL);
 	(*line)++;
 	cam = (t_camera *)ft_calloc(1, sizeof(t_camera));
 	if (cam == NULL)

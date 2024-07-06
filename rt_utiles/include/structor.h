@@ -6,7 +6,7 @@
 /*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 19:47:57 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/06 21:41:16 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/06 23:45:48 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,8 @@ typedef struct s_light
 typedef struct s_object
 {
 	t_object_type	type;
+	t_object_type	skin;
+	void			*img[10];
 	void			*element;
 	void			*next;
 	t_color			reflect;

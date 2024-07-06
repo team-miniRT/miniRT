@@ -6,12 +6,12 @@
 #    By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/19 00:52:49 by jjhang            #+#    #+#              #
-#    Updated: 2024/07/04 11:40:47 by jjhang           ###   ########.fr        #
+#    Updated: 2024/07/06 22:52:59 by jjhang           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror #-g -fsanitize=address
 NAME = minirt
 LIBFT = libft/libft.a
 
@@ -29,12 +29,14 @@ LIBFT_DIR = libft
 
 PARSER_FILES = get_ambient_lightning.c \
 			get_camera_data.c \
+			get_cylinder_data.c \
 			get_light_data.c \
 			get_multi_data.c \
+			get_plane_data.c \
 			get_single_data.c \
+			get_sphere_data.c \
 			is_valid_file.c \
 			minirt_parser.c \
-			object.c \
 			rt_error_handler.c \
 			skip_white_space.c
 
