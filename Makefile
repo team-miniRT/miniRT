@@ -1,62 +1,135 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/07/08 20:14:57 by jjhang            #+#    #+#              #
+#    Updated: 2024/07/09 01:22:20 by jjhang           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 CC = cc
-CFLAGS = -Imlx #-Wall -Wextra -Werror
-
+CFLAGS = -Imlx -Wall -Wextra -Werror #-g -fsanitize=address
 NAME = miniRT
+LIBFT = libft/libft.a
 
-SRCS_DIR = ./mandatory/
-SRCS_SRCS = main.c\
-			utile.c
-SRCS = $(addprefix $(SRCS_DIR),$(SRCS_SRCS))
-SRCS_OBJS = $(SRCS:.c=.o)
+PARSER_DIR = rt_parser
+OBJECTS_DIR = objects
+RAY_DIR = ray
+HIT_DIR = hit
+UTILES_DIR = rt_utiles
+SRCS_DIR = mandatory
+VEC_DIR = vector
 
-VEC_DIR = ./mandatory/vector/
-VEC_SRCS = vec_div_mul.c\
-			vec_init.c\
-			vec_plus_minus.c\
-			vec_pro.c\
+OBJ_DIR = obj
+
+HEADER_DIR = include
+LIBFT_DIR = libft
+
+SRCS_FILES = main.c
+
+PARSER_FILES = edit_objects_vector.c \
+				get_ambient_lightning.c \
+				get_camera_data.c \
+				get_cylinder_data.c \
+				get_light_data.c \
+				get_multi_data.c \
+				get_plane_data.c \
+				get_single_data.c \
+				get_sphere_data.c \
+				is_valid_file.c \
+				minirt_parser.c \
+				rt_error_handler.c \
+				skip_white_space.c
+
+VEC_FILES = vec_div_mul.c \
+			vec_init.c \
+			vec_plus_minus.c \
+			vec_pro.c \
 			vec_utile.c
-VEC = $(addprefix $(VEC_DIR),$(VEC_SRCS))
-VEC_OBJS = $(VEC:.c=.o)
 
-RAY_DIR = ./mandatory/ray/
-RAY_SRCS = cam.c\
-			ray.c\
+RAY_FILES = cam.c \
 			light.c \
-			phong_light.c\
+			phong_light.c \
+			ray.c \
 			shadow.c
-RAY = $(addprefix $(RAY_DIR),$(RAY_SRCS))
-RAY_OBJS = $(RAY:.c=.o)
 
-SPHERE_DIR = ./mandatory/sphere/
-SPHERE_SRCS = sphere.c \
+HIT_FILES = hit.c
+
+OBJECTS_FILES = cylinder_utile.c \
+				cylinder.c \
 				object.c \
 				plane.c \
-				cylinder.c
-SPHERE = $(addprefix $(SPHERE_DIR),$(SPHERE_SRCS))
-SPHERE_OBJS = $(SPHERE:.c=.o)
+				sphere.c
 
-HIT_DIR = ./mandatory/hit/
-HIT_SRCS = hit.c
-HIT = $(addprefix $(HIT_DIR),$(HIT_SRCS))
-HIT_OBJS = $(HIT:.c=.o)
+UTILES_FILES = is_char_range.c \
+				utile.c
 
-all : $(NAME)
+PARSER_SRCS = $(addprefix $(PARSER_DIR)/, $(PARSER_FILES))
+VEC_SRCS = $(addprefix $(VEC_DIR)/, $(VEC_FILES))
+RAY_SRCS = $(addprefix $(RAY_DIR)/, $(RAY_FILES))
+HIT_SRCS = $(addprefix $(HIT_DIR)/, $(HIT_FILES))
+UTILES_SRCS = $(addprefix $(UTILES_DIR)/, $(UTILES_FILES))
+OBJECTS_SRCS = $(addprefix $(OBJECTS_DIR)/, $(OBJECTS_FILES))
+SRCS_SRCS = $(addprefix $(SRCS_DIR)/, $(SRCS_FILES))
 
-clean : 
-	rm -f $(SRCS_OBJS) $(VEC_OBJS) $(RAY_OBJS) $(SPHERE_OBJS) $(HIT_OBJS)
-#	rm -f $(BUNUS_OBJS)
+OBJS = $(PARSER_FILES:%.c=$(OBJ_DIR)/%.o) \
+		$(VEC_FILES:%.c=$(OBJ_DIR)/%.o) \
+		$(RAY_FILES:%.c=$(OBJ_DIR)/%.o) \
+		$(HIT_FILES:%.c=$(OBJ_DIR)/%.o) \
+		$(OBJECTS_FILES:%.c=$(OBJ_DIR)/%.o) \
+		$(UTILES_FILES:%.c=$(OBJ_DIR)/%.o) \
+		$(SRCS_FILES:%.c=$(OBJ_DIR)/%.o) \
+
+HEADER = $(HEADER_DIR)
+
+all : $(LIBFT) $(NAME)
+
+$(LIBFT) :
+		@make -C $(LIBFT_DIR)
+
+$(NAME) : $(LIBFT) $(OBJS)
+		@$(CC) $(CFLAGS) -lmlx -framework OpenGL -framework AppKit -L$(LIBFT_DIR) -o $(NAME) $^
+		@echo ✅[miniRT_parser] has been built
+
+$(OBJ_DIR)/%.o : $(PARSER_DIR)/%.c | $(OBJ_DIR)
+		@$(CC) $(CFLAGS) -c -o $@ $< -I $(HEADER_DIR) -I $(LIBFT_DIR)
+
+$(OBJ_DIR)/%.o : $(VEC_DIR)/%.c | $(OBJ_DIR)
+		@$(CC) $(CFLAGS) -c -o $@ $< -I $(HEADER_DIR) -I $(LIBFT_DIR)
+
+$(OBJ_DIR)/%.o : $(RAY_DIR)/%.c | $(OBJ_DIR)
+		@$(CC) $(CFLAGS) -c -o $@ $< -I $(HEADER_DIR) -I $(LIBFT_DIR)
+
+$(OBJ_DIR)/%.o : $(HIT_DIR)/%.c | $(OBJ_DIR)
+		@$(CC) $(CFLAGS) -c -o $@ $< -I $(HEADER_DIR) -I $(LIBFT_DIR)
+
+$(OBJ_DIR)/%.o : $(UTILES_DIR)/%.c | $(OBJ_DIR)
+		@$(CC) $(CFLAGS) -c -o $@ $< -I $(HEADER_DIR) -I $(LIBFT_DIR)
+
+$(OBJ_DIR)/%.o : $(OBJECTS_DIR)/%.c | $(OBJ_DIR)
+		@$(CC) $(CFLAGS) -c -o $@ $< -I $(HEADER_DIR) -I $(LIBFT_DIR)
+
+$(OBJ_DIR)/%.o : $(SRCS_DIR)/%.c | $(OBJ_DIR)
+		@$(CC) $(CFLAGS) -c -o $@ $< -I $(HEADER_DIR) -I $(LIBFT_DIR)
+
+
+$(OBJ_DIR) :
+		@mkdir -p $@
+
+clean :
+		@rm -f $(OBJS)
+		@rm -rf $(OBJ_DIR)
+		@make -C $(LIBFT_DIR) clean
 
 fclean : clean
-	rm -f $(NAME)
+		@rm -f $(NAME)
+		@make -C $(LIBFT_DIR) fclean
 
-re:
-	make fclean
-	make all
+re :
+		$(MAKE) fclean
+		$(MAKE) all
 
-$(NAME) : $(SRCS_OBJS) $(VEC_OBJS) $(RAY_OBJS) $(SPHERE_OBJS) $(HIT_OBJS)
-		$(CC) $(CFLAGS) -lmlx -framework OpenGL -framework AppKit $^ -o $@ 
-
-%.o: %.c
-	$(CC) $(CFLAGS) -Imlx -c $< -o $@ 
-
-.PHONY : all clean fclean re 
+.PHONY : all clean fclean re

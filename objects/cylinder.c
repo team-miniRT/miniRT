@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cylinder.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 19:15:08 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/06 22:36:38 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/07/09 01:23:27 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,6 @@ double	hit_cylinder(t_object *cy_obj, t_ray *ray, t_hit_record *rec)
 	t_cylinder	*cy;
 
 	cy = cy_obj->element;
-	if (hit_cone(cy_obj, ray, rec) == FALSE)
-		return (FALSE);
-	return (TRUE);
 	if (is_bottom(cy, ray, rec) == FALSE)
 	{
 		if (is_side(cy, ray, rec) == FALSE)
@@ -77,8 +74,8 @@ int	check_one_bottom(t_cylinder *cy, t_ray *ray, t_hit_record *rec, int flag)
 				vec_inner_pro(p->plane_vec, ray->dir);
 	free(p);
 	pl_point = ray_at(ray, pl_t);
-	if (len_point(r_center, pl_point) > cy->radius)
-		return (FALSE);
+	// if (len_point(r_center, pl_point) > cy->radius)
+	// 	return (FALSE);
 	if (pl_t < rec->tmin || pl_t > rec->tmax)
 		return (FALSE);
 	rec->t = pl_t;
