@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_camera_data.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 04:40:22 by jjhang            #+#    #+#             */
-/*   Updated: 2024/07/06 22:40:43 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/09 17:13:43 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ t_camera	*get_camera_data(char **line)
 	fov = ft_strtol(*line, line, 10);
 	if (!(0 <= fov && fov <= 180))
 		rt_error_handler("camera", "fov is not valid argumet", 1);
+	cam->focal_len = fov;
 	cam->orig = origin;
-	cam->vertical = vec;
+	cam->ray_dir = vec;
 	return (cam);
 }
