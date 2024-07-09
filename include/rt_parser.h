@@ -3,9 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rt_parser.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 19:58:15 by jjhang            #+#    #+#             */
+/*   Updated: 2024/07/08 20:29:06 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +41,6 @@ typedef struct s_container
 	t_hit_record	rec;
 }	t_container;
 
-int			main(int argc, char *argv[]);
 t_container	*minirt_parser(int argc, char *argv[]);
 /* srcs */
 int			is_valid_file(int argc, char *argv[]);

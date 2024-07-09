@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   objects.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 17:03:54 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/06 23:57:49 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/07/09 01:23:33 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ double		hit_cylinder(t_object *cy_obj, t_ray *ray, t_hit_record *rec);
 int			is_bottom(t_cylinder *cy, t_ray *ray, t_hit_record *rec);
 int			check_one_bottom(t_cylinder *cy, t_ray *ray, \
 						t_hit_record *rec, int flag);
-double		len_point(t_point p1, t_point p2);
+// double		len_point(t_point p1, t_point p2);
 t_ray		get_mid_ray(t_cylinder *cy, t_ray *ray);
 int			discriment_cy(t_ray bot_ray, t_cylinder *cy, \
 			double *root);
 int			is_side(t_cylinder *cy, t_ray *ray, t_hit_record *rec);
 int			check_in_height(t_hit_record *rec, t_cylinder *cy, t_ray *ray);
-int			get_t(t_cylinder *cy, t_ray *ray, t_hit_record *rec, int *t);
+int			get_t(t_cylinder *cy, t_ray *ray, t_hit_record *rec, double *t);
 double		get_meet_point(t_ray v_ray, t_ray *ray);
 
 #endif

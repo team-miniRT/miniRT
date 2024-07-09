@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cylinder_utile.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 22:03:48 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/06 22:39:10 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/07/08 20:31:45 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	check_in_height(t_hit_record *rec, t_cylinder *cy, t_ray *ray)
 	return (TRUE);
 }
 
-int	get_t(t_cylinder *cy, t_ray *ray, t_hit_record *rec, int *t)
+int	get_t(t_cylinder *cy, t_ray *ray, t_hit_record *rec, double *t)
 {
 	t_ray	mid_ray;
 	double	*root;
