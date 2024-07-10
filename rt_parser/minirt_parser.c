@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minirt_parser.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 19:57:40 by jjhang            #+#    #+#             */
-/*   Updated: 2024/07/09 23:40:36 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/07/10 10:53:13 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,7 @@
 static void	obj_turnout(char **line, t_container **data)
 {
 	if (**line == 'A' && (*data)->ambient == NULL)
-	{
 		(*data)->ambient = get_ambient_lightning(line);
-		return ;
-	}
 	else if (**line == 'A' && (*data)->ambient != NULL)
 		rt_error_handler("ambient light", "only a argument is required.", 9);
 	else if (**line == 'C' && (*data)->camera == NULL)

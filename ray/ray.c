@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:43:10 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/09 17:29:44 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/07/10 12:15:10 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,13 @@ t_ray	ray_primary(t_camera *cam, double x_weight, double y_weight)
 
 t_color	ray_color(t_container *scene)
 {
-	double			t;
+	// double			t;
 
 	scene->rec = record_init();
 	if (hit(scene->object, &scene->ray, &scene->rec))
 		return (phong_lighting(scene));
-	t = 0.5 * (scene->ray.dir.y + 1.0);
-	return (vec_plus_vec(vec_mult_scal(make_color(1, 1, 1), (1.0 - t)), \
-	vec_mult_scal(make_color(0.5, 0.7, 1.0), t)));
+	return (make_color(0, 0, 0));
+	// t = 0.5 * (scene->ray.dir.y + 1.0);
+	// return (vec_plus_vec(vec_mult_scal(make_color(1, 1, 1), (1.0 - t)), \
+	// vec_mult_scal(make_color(0.5, 0.7, 1.0), t)));
 }
