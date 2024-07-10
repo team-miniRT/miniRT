@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vec_utile.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 13:56:53 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/06 22:56:24 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/09 17:26:14 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,7 @@ t_vec	vec_unit(t_vec vec)
 	len = vec_len(vec);
 	if (len == 0)
 	{
-		printf("ERROR\n");
-		exit(1);
+		return (vec);
 	}
 	vec.x /= len;
 	vec.y /= len;

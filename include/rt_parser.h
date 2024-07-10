@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rt_parser.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 19:58:15 by jjhang            #+#    #+#             */
-/*   Updated: 2024/07/08 20:29:06 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/09 23:40:53 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ t_container	*minirt_parser(int argc, char *argv[]);
 /* srcs */
 int			is_valid_file(int argc, char *argv[]);
 t_color		*get_ambient_lightning(char **line);
-t_camera	*get_camera_data(char **line);
+t_camera	*get_camera_data(char **line, t_container **data);
 t_object	*get_light_data(t_container **data, char **line);
 t_object	*get_sphere_data(t_container **data, char **line);
 t_object	*get_plane_data(t_container **data, char **line);

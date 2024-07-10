@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minirt_parser.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 19:57:40 by jjhang            #+#    #+#             */
-/*   Updated: 2024/07/09 01:25:05 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/09 23:40:36 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	obj_turnout(char **line, t_container **data)
 	else if (**line == 'A' && (*data)->ambient != NULL)
 		rt_error_handler("ambient light", "only a argument is required.", 9);
 	else if (**line == 'C' && (*data)->camera == NULL)
-		(*data)->camera = get_camera_data(line);
+		(*data)->camera = get_camera_data(line, data);
 	else if (**line == 'C' && (*data)->camera != NULL)
 		rt_error_handler("camera point", "only a argument is required.", 9);
 	else if (**line == 'L')
