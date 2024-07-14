@@ -6,7 +6,7 @@
 #    By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/08 20:14:57 by jjhang            #+#    #+#              #
-#    Updated: 2024/07/09 01:22:20 by jjhang           ###   ########.fr        #
+#    Updated: 2024/07/14 22:34:39 by jjhang           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,7 @@ VEC_FILES = vec_div_mul.c \
 			vec_init.c \
 			vec_plus_minus.c \
 			vec_pro.c \
+			vec_unit.c \
 			vec_utile.c
 
 RAY_FILES = cam.c \

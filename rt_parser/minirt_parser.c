@@ -6,7 +6,7 @@
 /*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 19:57:40 by jjhang            #+#    #+#             */
-/*   Updated: 2024/07/10 10:53:13 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/14 22:33:30 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	obj_turnout(char **line, t_container **data)
 	else if (**line == 'A' && (*data)->ambient != NULL)
 		rt_error_handler("ambient light", "only a argument is required.", 9);
 	else if (**line == 'C' && (*data)->camera == NULL)
-		(*data)->camera = get_camera_data(line, data);
+		get_camera_data(line, data);
 	else if (**line == 'C' && (*data)->camera != NULL)
 		rt_error_handler("camera point", "only a argument is required.", 9);
 	else if (**line == 'L')

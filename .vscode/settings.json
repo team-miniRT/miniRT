@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "rt_parser.h": "c"
+        "rt_parser.h": "c",
+        "vector.h": "c"
     }
 }

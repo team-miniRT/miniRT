@@ -6,7 +6,7 @@
 /*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 19:56:55 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/10 12:18:20 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/14 22:38:14 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,8 @@ void	prt_pixel(t_vars *vars, t_container *scene)
 	}
 }
 
-void	calc_color(t_container *scene, double pixel_x, double pixel_y, t_vars *vars)
+void	calc_color(t_container *scene, double pixel_x, \
+					double pixel_y, t_vars *vars)
 {
 	double	x_weight;
 	double	y_weight;
