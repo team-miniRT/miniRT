@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cam.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 16:19:57 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/15 13:25:48 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/15 15:49:15 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ t_camera	camera_init(t_canvas *canvas, t_point orig)
 	viewport_height = 2.0;
 	focal_len = 1;
 	cam.orig = orig;
-	print_point(cam.ray_dir);
-	print_point(cam.orig);
 	cam.viewport_h = viewport_height;
 	cam.viewport_w = viewport_height * canvas->aspect_ratio;
 	cam.focal_len = focal_len;

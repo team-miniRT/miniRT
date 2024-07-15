@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phong_light.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 00:19:49 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/01 21:16:54 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/15 16:22:19 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,11 @@ t_color	phong_lighting(t_container	*scene)
 {
 	t_color		light_color;
 	t_object	*lights;
+	t_light		*l;
 
 	light_color = make_color(0, 0, 0);
 	lights = scene->light;
+	l = (t_light *)scene->light->element;
 	while (lights)
 	{
 		if (lights->type == LIGHT_POINT)
@@ -32,8 +34,14 @@ t_color	phong_lighting(t_container	*scene)
 		lights = lights->next;
 	}
 	light_color = vec_plus_vec(light_color, *scene->ambient);
+	//if (vec_len(light_color) >= 1.0)
+	//	print_point(vec_min(vec_mult_vec(light_color, scene->rec.reflect), \
+	//make_color(1, 1, 1)));
+		//return (make_color(1, 1, 1));
 	return (vec_min(vec_mult_vec(light_color, scene->rec.reflect), \
 	make_color(1, 1, 1)));
+	//return (vec_min(vec_mult_vec(light_color, scene->rec.reflect), \
+	//make_color(1, 1, 1)));
 }
 
 static t_vec	get_diffuse(t_light	*light, t_container *scene, t_vec light_dir)
@@ -70,6 +78,7 @@ t_color	point_light_get(t_container *scene, t_light *light)
 	t_color	specular;
 	t_ray	light_ray;
 	double	brightness;
+	static int	idx = 0;
 
 	light_dir = vec_minus_vec(light->origin, scene->rec.point);
 	light_ray = ray_init(vec_plus_vec(scene->rec.point, \
@@ -80,5 +89,9 @@ t_color	point_light_get(t_container *scene, t_light *light)
 	diffuse = get_diffuse(light, scene, light_dir);
 	specular = get_specular(light, scene, light_dir);
 	brightness = light->bright_ratio * LUMEN;
+	//if (vec_len(specular) > 0.8)
+	//{
+	//	return (make_color(1, 1, 1));
+	//}
 	return (vec_mult_scal(vec_plus_vec(diffuse, specular), brightness));
 }

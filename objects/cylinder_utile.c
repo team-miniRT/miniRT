@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cylinder_utile.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 22:03:48 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/08 20:31:45 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/15 16:45:17 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ int	get_t(t_cylinder *cy, t_ray *ray, t_hit_record *rec, double *t)
 	if (*t < rec->tmin || *t > rec->tmax)
 	{
 		vertical = ray_init(ray_at(&mid_ray, root[0]), cy->c_vec);
+		free(root);
 		*t = get_meet_point(vertical, ray);
 		if (*t < rec->tmin || *t > rec->tmax)
 			return (FALSE);

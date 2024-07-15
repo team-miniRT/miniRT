@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_multi_data.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 14:14:48 by jjhang            #+#    #+#             */
-/*   Updated: 2024/07/04 05:57:27 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/15 16:09:21 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	input_vec_t(int idx, double input, t_vec *vec)
 t_color	get_rgb_color(char *err_point, char **line)
 {
 	t_color	color;
-	int		a_color;
+	double	a_color;
 	int		idx;
 	char	*start;
 
@@ -36,7 +36,7 @@ t_color	get_rgb_color(char *err_point, char **line)
 		if (ft_isdigit(**line) != TRUE)
 			rt_error_handler(err_point, "invalid format", 1);
 		start = *line;
-		a_color = ft_strtol(*line, line, 10);
+		a_color = ft_strtod(*line, line);
 		if ((*line - start > 2 && a_color == 0) || !is_char_range(a_color))
 			rt_error_handler(err_point, "invalid arguments", 127);
 		input_vec_t(idx, a_color, &color);
@@ -44,6 +44,8 @@ t_color	get_rgb_color(char *err_point, char **line)
 		if (**line != '\0' && **line == ',')
 			(*line)++;
 	}
+	color = vec_div(color, 255);
+	//print_point(color);
 	return (color);
 }
 

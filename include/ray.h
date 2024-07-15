@@ -6,7 +6,7 @@
 /*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:55:51 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/06 22:38:25 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/07/15 16:23:08 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 # include "rt_parser.h"
 
-# define BRIGHTNESS 64
-# define SPEC_LEVEL 0.5
+# define BRIGHTNESS 32
+# define SPEC_LEVEL 5
 
 typedef struct s_container	t_container;
 

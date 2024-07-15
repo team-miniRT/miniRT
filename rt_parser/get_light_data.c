@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_light_data.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 05:59:52 by jjhang            #+#    #+#             */
-/*   Updated: 2024/07/06 22:42:10 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/15 16:07:43 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ t_object	*get_light_data(t_container **data, char **line)
 		reflect = get_rgb_color("light", line);
 	else
 		reflect = make_color(255, 255, 255);
-	obj = object_new(LIGHT_POINT, light, reflect);
+	light->light_color = reflect;
+	obj = object_new(LIGHT_POINT, light, make_color(0, 0, 0));
 	object_addback(&(*data)->light, obj);
 	return (obj);
 }

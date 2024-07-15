@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cylinder.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 19:15:08 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/09 01:23:27 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/15 13:52:47 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@ int	check_one_bottom(t_cylinder *cy, t_ray *ray, t_hit_record *rec, int flag)
 				vec_inner_pro(p->plane_vec, ray->dir);
 	free(p);
 	pl_point = ray_at(ray, pl_t);
-	// if (len_point(r_center, pl_point) > cy->radius)
-	// 	return (FALSE);
+	if (point_to_point(r_center, pl_point) > cy->radius)
+	 	return (FALSE);
 	if (pl_t < rec->tmin || pl_t > rec->tmax)
 		return (FALSE);
 	rec->t = pl_t;

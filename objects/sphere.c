@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sphere.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 17:14:02 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/01 21:26:25 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/15 15:18:01 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,9 @@ double	hit_sphere(t_object *sp_obj, t_ray *ray, t_hit_record *rec)
 		return (FALSE);
 	rec->t = root;
 	rec->point = ray_at(ray, root);
-	rec->normal = vec_div(vec_minus_vec(rec->point, sp->center), sp->radius);
+	rec->normal = vec_unit(vec_div(vec_minus_vec(rec->point, sp->center), sp->radius));
+	//printf("sp_normal : ");
+	//print_point(rec->normal);
 	set_face_normal(ray, rec);
 	rec->reflect = sp_obj->reflect;
 	return (TRUE);

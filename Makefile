@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+         #
+#    By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/08 20:14:57 by jjhang            #+#    #+#              #
-#    Updated: 2024/07/14 22:34:39 by jjhang           ###   ########.fr        #
+#    Updated: 2024/07/15 13:46:19 by yeoshin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Imlx -Wall -Wextra -Werror #-g -fsanitize=address
+CFLAGS = -Imlx #-Wall -Wextra -Werror #-g -fsanitize=address
 NAME = miniRT
 LIBFT = libft/libft.a
 

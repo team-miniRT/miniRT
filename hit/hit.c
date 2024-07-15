@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hit.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 22:16:52 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/01 21:55:01 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/15 16:48:35 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_bool	hit(t_object *world, t_ray *ray, t_hit_record *rec)
 		if (hit_obj(world, ray, &temp_rec))
 		{
 			hit_anything = TRUE;
-			temp_rec.tmax = temp_rec.t;
+			//temp_rec.tmax = temp_rec.t;
 			*rec = temp_rec;
 		}
 		world = world->next;

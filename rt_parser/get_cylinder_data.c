@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_cylinder_data.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 22:08:37 by jjhang            #+#    #+#             */
-/*   Updated: 2024/07/15 13:36:22 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/15 13:44:39 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ t_object	*get_cylinder_data(t_container **data, char **line)
 	meter.x = get_meter(line);
 	meter.y = get_meter(line);
 	reflect = get_rgb_color("cylinder", line);
-	print_point(reflect);
 	obj = object_new(CY, NULL, reflect);
 	obj->element = init_cylinder(vec, points, meter.x, meter.y);
 	object_addback(&(*data)->object, obj);
