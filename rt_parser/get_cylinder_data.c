@@ -6,7 +6,7 @@
 /*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 22:08:37 by jjhang            #+#    #+#             */
-/*   Updated: 2024/07/15 13:44:39 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/07/15 18:20:24 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_object	*get_cylinder_data(t_container **data, char **line)
 	(*line) += 2;
 	points = get_3d_coordinates("cylinder", line);
 	vec = get_vector("cylinder", line);
-	meter.x = get_meter(line);
+	meter.x = get_meter(line) / 2;
 	meter.y = get_meter(line);
 	reflect = get_rgb_color("cylinder", line);
 	obj = object_new(CY, NULL, reflect);

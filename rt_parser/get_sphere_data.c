@@ -6,7 +6,7 @@
 /*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 12:41:53 by jjhang            #+#    #+#             */
-/*   Updated: 2024/07/15 16:07:29 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/07/15 18:20:29 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_object	*get_sphere_data(t_container **data, char **line)
 	if (sphere == NULL)
 		rt_error_handler("sphere", "ft_calloc failed", 9);
 	sphere->center = get_3d_coordinates("sphere", line);
-	sphere->radius = get_meter(line);
+	sphere->radius = get_meter(line) / 2;
 	sphere->radius_square = pow(sphere->radius, 2);
 	reflect = get_rgb_color("sphere", line);
 	obj = object_new(SP, sphere, reflect);
