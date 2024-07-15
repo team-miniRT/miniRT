@@ -6,7 +6,7 @@
 /*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 19:47:57 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/14 22:37:50 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/15 13:16:24 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ typedef int	t_object_type;
 # define CY 2
 # define LIGHT_POINT 3
 
-# define WIDTH 1200
-# define HEIGHT 900
+# define WIDTH 1920
+# define HEIGHT 1080
 
 # define EPSILON 1e-6
 # define LUMEN 3

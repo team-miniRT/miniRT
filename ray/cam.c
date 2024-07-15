@@ -6,7 +6,7 @@
 /*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 16:19:57 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/10 13:54:19 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/15 13:25:48 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ t_canvas	canvas_init(int width, int height)
 
 	canvas.width = width;
 	canvas.height = height;
-	canvas.aspect_ratio = (double)width / (double)height;
+	// canvas.aspect_ratio = (double)width / (double)height;
+	canvas.aspect_ratio = (double)height / (double)width;
 	return (canvas);
 }
 

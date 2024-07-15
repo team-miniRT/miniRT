@@ -6,7 +6,7 @@
 /*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 04:40:22 by jjhang            #+#    #+#             */
-/*   Updated: 2024/07/14 22:41:14 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/15 13:34:48 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ static void	get_aspect_ratio(t_vec vec, char **line, t_container **data)
 	if (!(0 <= fov && fov <= 180))
 		rt_error_handler("camera", "fov is not valid argument", 1);
 	theta = fov * M_PI / 180.0;
-	half_height = tan(theta / 2);
-	half_width = (*data)->canvas.aspect_ratio * half_height;
-	set_cam_data(vec, half_height, half_width, data);
+	half_width = tan(theta / 2);
+	half_height = (*data)->canvas.aspect_ratio * half_width;
+	set_cam_data(vec, half_width, half_height, data);
 }
 
 t_camera	*get_camera_data(char **line, t_container **data)
