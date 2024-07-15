@@ -6,7 +6,7 @@
 /*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 04:40:22 by jjhang            #+#    #+#             */
-/*   Updated: 2024/07/15 17:06:41 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/15 17:07:25 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ static void	set_cam_data(t_vec vec, double half_width, double half_height, \
 			vec_minus_vec((*data)->camera->orig, \
 			vec_div((*data)->camera->horizontal, 2)), \
 			vec_div((*data)->camera->vertical, 2)), w);
-	(*data)->camera->viewport_h = 2.0 * half_height;
-	(*data)->camera->viewport_w = 2.0 * half_width;
+	(*data)->camera->viewport_h = 1.0 * half_height;
+	(*data)->camera->viewport_w = 1.0 * half_width;
 }
 
 static void	get_aspect_ratio(t_vec vec, char **line, t_container **data)

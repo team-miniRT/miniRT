@@ -6,7 +6,7 @@
 /*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 19:57:40 by jjhang            #+#    #+#             */
-/*   Updated: 2024/07/14 22:33:30 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/15 17:13:55 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static void	set_container(char *filename, t_container **data)
 		free(line);
 		line = NULL;
 	}
-	edit_objects_vector(*data);
+	// edit_objects_vector(*data);
 }
 
 t_container	*minirt_parser(int argc, char *argv[])
