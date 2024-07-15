@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   skip_white_space.c                                 :+:      :+:    :+:   */
+/*   is_comment.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/30 19:18:42 by jjhang            #+#    #+#             */
-/*   Updated: 2024/07/15 17:04:35 by jjhang           ###   ########.fr       */
+/*   Created: 2024/07/15 17:02:15 by jjhang            #+#    #+#             */
+/*   Updated: 2024/07/15 17:03:29 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt_parser.h"
 
-static int	ft_is_whitespace(char c)
+int	is_comment(char **line)
 {
-	if (c == ' ')
-		return (TRUE);
-	if (8 < c && c < 14)
-		return (TRUE);
-	return (FALSE);
+	if (*line == '#')
+		return (1);
+	return (0);
 }
 
-void	skip_white_space(char **line)
+void	skip_string(char **line)
 {
 	while (**line != '\0')
-	{
-		if (ft_is_whitespace(**line) != TRUE)
-			break ;
 		(*line)++;
-	}
-	if (is_comment(line))
-		skip_string(line);
 }

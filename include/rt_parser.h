@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rt_parser.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 19:58:15 by jjhang            #+#    #+#             */
-/*   Updated: 2024/07/09 23:40:53 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/07/15 17:03:48 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,6 @@ int			rt_error_handler(char *filename, char *error_msg, int error_code);
 t_object	*new_object(t_object_type type, void *element, t_color reflect);
 t_object	*get_t_object(t_object_type type, \
 							void *element, t_container **data, char **line);
-
+int			is_comment(char **line);
+void		skip_string(char **line);
 #endif

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+         #
+#    By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/08 20:14:57 by jjhang            #+#    #+#              #
-#    Updated: 2024/07/15 13:46:19 by yeoshin          ###   ########.fr        #
+#    Updated: 2024/07/15 17:04:56 by jjhang           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ PARSER_FILES = edit_objects_vector.c \
 				get_plane_data.c \
 				get_single_data.c \
 				get_sphere_data.c \
+				is_comment.c \
 				is_valid_file.c \
 				minirt_parser.c \
 				rt_error_handler.c \
