@@ -6,7 +6,7 @@
 /*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 22:03:48 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/15 16:45:17 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/07/15 19:21:49 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 t_ray	get_mid_ray(t_cylinder *cy, t_ray *ray)
 {
-	t_ray	ray1;
+	t_ray	t_ray;
 	t_plane	*bottom;
 	double	c_t;
 	t_point	p1;
 	t_point	p2;
 
 	bottom = init_plane(cy->center, cy->c_vec);
-	ray1 = ray_init(ray->dir, \
+	t_ray = ray_init(vec_plus_vec(ray->dir, ray->orig), \
 					cy->c_vec);
-	c_t = -1 * (vec_inner_pro(bottom->plane_vec, ray1.orig) + bottom->constant) \
-			/ (vec_inner_pro(ray1.dir, bottom->plane_vec));
-	p1 = ray_at(&ray1, c_t);
-	ray1 = ray_init(vec_mult_scal(ray->dir, 2), cy->c_vec);
-	c_t = -1 * (vec_inner_pro(bottom->plane_vec, ray1.orig) + bottom->constant) \
-			/ (vec_inner_pro(ray1.dir, bottom->plane_vec));
-	p2 = ray_at(&ray1, c_t);
+	c_t = -1 * (vec_inner_pro(bottom->plane_vec, t_ray.orig) + bottom->constant) \
+			/ (vec_inner_pro(t_ray.dir, bottom->plane_vec));
+	p1 = ray_at(&t_ray, c_t);
+	t_ray = ray_init(vec_plus_vec(vec_mult_scal(ray->dir, 2), ray->orig), cy->c_vec);
+	c_t = -1 * (vec_inner_pro(bottom->plane_vec, t_ray.orig) + bottom->constant) \
+			/ (vec_inner_pro(t_ray.dir, bottom->plane_vec));
+	p2 = ray_at(&t_ray, c_t);
 	free(bottom);
 	return (ray_init(p2, vec_minus_vec(p1, p2)));
 }
@@ -104,7 +104,8 @@ double	get_meet_point(t_ray v_ray, t_ray *ray)
 {
 	double	t;
 
-	t = ((v_ray.dir.y * v_ray.orig.x) - (v_ray.dir.x * v_ray.orig.y)) / \
+	t = (v_ray.dir.x * (ray->orig.y - v_ray.orig.y) - v_ray.dir.y * (ray->orig.x - v_ray.orig.x)) / \
+	//t = ((v_ray.dir.y * v_ray.orig.x) - (v_ray.dir.x * v_ray.orig.y)) / 
 		((v_ray.dir.y * ray->dir.x) - (ray->dir.y * v_ray.dir.x));
 	return (t);
 }
