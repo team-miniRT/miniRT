@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+         #
+#    By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/08 20:14:57 by jjhang            #+#    #+#              #
-#    Updated: 2024/07/15 17:04:56 by jjhang           ###   ########.fr        #
+#    Updated: 2024/07/16 19:23:58 by yeoshin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,7 +64,8 @@ OBJECTS_FILES = cylinder_utile.c \
 				cylinder.c \
 				object.c \
 				plane.c \
-				sphere.c
+				sphere.c \
+				checker.c
 
 UTILES_FILES = is_char_range.c \
 				utile.c
