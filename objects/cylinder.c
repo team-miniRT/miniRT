@@ -6,7 +6,7 @@
 /*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 19:15:08 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/16 18:11:36 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/07/17 12:38:54 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,15 @@ double	hit_cylinder(t_object *cy_obj, t_ray *ray, t_hit_record *rec)
 	}
 	else
 		is_side(cy, ray, rec);
-	//if (is_side(cy, ray, rec) == FALSE)
-	//	return (FALSE);
-	rec->reflect = cy_obj->reflect;
+	//if (is_checker(cy_obj))
+	//{
+		if (checker_point(rec->point))
+			rec->reflect = make_color(255,0,0);
+		else
+			rec->reflect = make_color(0,0,255);
+	//}
+	//else
+		rec->reflect = cy_obj->reflect;
 	return (TRUE);
 }
 

@@ -6,7 +6,7 @@
 /*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 17:03:54 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/16 18:10:30 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/07/16 19:24:13 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,6 @@ int			is_side(t_cylinder *cy, t_ray *ray, t_hit_record *rec);
 int			check_in_height(t_hit_record *rec, t_cylinder *cy, t_ray *ray, double t);
 int			get_t(t_cylinder *cy, t_ray *ray, t_hit_record *rec, double *t);
 double		get_meet_point(t_ray v_ray, t_ray *ray);
+int			checker_point(t_point p);
 
 #endif
