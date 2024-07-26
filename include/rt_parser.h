@@ -6,7 +6,7 @@
 /*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 19:58:15 by jjhang            #+#    #+#             */
-/*   Updated: 2024/07/15 17:03:48 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/25 16:53:39 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,12 @@ t_container	*minirt_parser(int argc, char *argv[]);
 int			is_valid_file(int argc, char *argv[]);
 t_color		*get_ambient_lightning(char **line);
 t_camera	*get_camera_data(char **line, t_container **data);
+t_object	*get_triangle_data(t_container **data, char **line);
 t_object	*get_light_data(t_container **data, char **line);
 t_object	*get_sphere_data(t_container **data, char **line);
 t_object	*get_plane_data(t_container **data, char **line);
 t_object	*get_cylinder_data(t_container **data, char **line);
+void		get_cone_data(t_container **data, char **line);
 void		edit_objects_vector(t_container *data);
 /* utiles */
 t_color		get_rgb_color(char *err_point, char **line);
