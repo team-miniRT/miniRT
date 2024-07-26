@@ -6,7 +6,7 @@
 /*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 13:33:11 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/14 22:42:26 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/26 18:38:02 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ t_vec	vec_mult_scal(t_vec vec, double k);
 t_vec	vec_div(t_vec vec, double t);
 double	point_to_point(t_point p1, t_point p2);
 void	print_point(t_vec v);
+t_vec	vec_rotate(t_vec vec, t_vec axis, double theta);
 
 #endif

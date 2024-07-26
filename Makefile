@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+         #
+#    By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/08 20:14:57 by jjhang            #+#    #+#              #
-#    Updated: 2024/07/16 19:23:58 by yeoshin          ###   ########.fr        #
+#    Updated: 2024/07/26 18:38:21 by jjhang           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Imlx #-Wall -Wextra -Werror #-g -fsanitize=address
+CFLAGS = -Imlx -Wall -Wextra -Werror -g -g3 #-fsanitize=address
 NAME = miniRT
 LIBFT = libft/libft.a
 
@@ -33,11 +33,13 @@ SRCS_FILES = main.c
 PARSER_FILES = edit_objects_vector.c \
 				get_ambient_lightning.c \
 				get_camera_data.c \
+				get_triangle_data.c \
 				get_cylinder_data.c \
 				get_light_data.c \
 				get_multi_data.c \
 				get_plane_data.c \
 				get_single_data.c \
+				get_cone_data.c \
 				get_sphere_data.c \
 				is_comment.c \
 				is_valid_file.c \
@@ -50,6 +52,7 @@ VEC_FILES = vec_div_mul.c \
 			vec_plus_minus.c \
 			vec_pro.c \
 			vec_unit.c \
+			vec_rotate.c \
 			vec_utile.c
 
 RAY_FILES = cam.c \
@@ -61,6 +64,7 @@ RAY_FILES = cam.c \
 HIT_FILES = hit.c
 
 OBJECTS_FILES = cylinder_utile.c \
+				triangle.c \
 				cylinder.c \
 				object.c \
 				plane.c \

@@ -6,7 +6,7 @@
 /*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 19:47:57 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/15 13:16:24 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/26 18:41:16 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@ typedef int	t_object_type;
 # define PL 1
 # define CY 2
 # define LIGHT_POINT 3
+# define TRI 4
+# define CONE 5
+
+# define CONE_N 20
 
 # define WIDTH 1920
 # define HEIGHT 1080
@@ -122,6 +126,19 @@ typedef struct s_cylinder
 	double	height;
 	double	radius;
 }	t_cylinder;
+
+typedef struct s_triangle
+{
+	t_point	vertex0;
+	t_point	vertex1;
+	t_point	vertex2;
+	t_vec	edge1;
+	t_vec	edge2;
+	t_vec	normal;
+	t_vec	scale_vector;
+	double	scale_factor;
+	t_ray	*ray;
+}	t_triangle;
 
 typedef struct s_light
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phong_light.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 00:19:49 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/16 18:42:15 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/07/20 00:51:03 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ t_color	point_light_get(t_container *scene, t_light *light)
 	t_color	specular;
 	t_ray	light_ray;
 	double	brightness;
-	static int	idx = 0;
+	// static int	idx = 0;
 
 	light_dir = vec_minus_vec(light->origin, scene->rec.point);
 	light_ray = ray_init(vec_plus_vec(scene->rec.point, \

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hit.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 22:16:52 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/16 18:01:34 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/07/24 23:29:55 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,7 @@ t_bool	hit_obj(t_object *world, t_ray *ray, t_hit_record *rec)
 		hit_result = hit_plane(world, ray, rec);
 	else if (world->type == CY)
 		hit_result = hit_cylinder(world, ray, rec);
+	else if (world->type == TRI)
+		hit_result = hit_triangle(world, ray, rec);
 	return (hit_result);
 }

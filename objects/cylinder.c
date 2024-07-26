@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cylinder.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 19:15:08 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/17 12:38:54 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/07/24 13:45:17 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,45 +27,7 @@ t_cylinder	*init_cylinder(t_vec n, t_point center, \
 	return (cy);
 }
 
-double	hit_cylinder(t_object *cy_obj, t_ray *ray, t_hit_record *rec)
-{
-	t_cylinder	*cy;
-
-	cy = cy_obj->element;
-	if (is_bottom(cy, ray, rec) == FALSE)
-	{
-		if (is_side(cy, ray, rec) == FALSE)
-			return (FALSE);
-	}
-	else
-		is_side(cy, ray, rec);
-	//if (is_checker(cy_obj))
-	//{
-		if (checker_point(rec->point))
-			rec->reflect = make_color(255,0,0);
-		else
-			rec->reflect = make_color(0,0,255);
-	//}
-	//else
-		rec->reflect = cy_obj->reflect;
-	return (TRUE);
-}
-
-int	is_bottom(t_cylinder *cy, t_ray *ray, t_hit_record *rec)
-{
-	if (check_one_bottom(cy, ray, rec, FIRST) == FALSE)
-	{
-		if (check_one_bottom(cy, ray, rec, SECOND) == FALSE)
-			return (FALSE);
-	}
-	else
-		check_one_bottom(cy, ray, rec, SECOND);
-	rec->point = ray_at(ray, rec->t);
-	set_face_normal(ray, rec);
-	return (TRUE);
-}
-
-int	check_one_bottom(t_cylinder *cy, t_ray *ray, t_hit_record *rec, int flag)
+static int	check_one_bottom(t_cylinder *cy, t_ray *ray, t_hit_record *rec, int flag)
 {
 	t_point	r_center;
 	t_ray	c_ray;
@@ -92,7 +54,21 @@ int	check_one_bottom(t_cylinder *cy, t_ray *ray, t_hit_record *rec, int flag)
 	return (TRUE);
 }
 
-int	is_side(t_cylinder *cy, t_ray *ray, t_hit_record *rec)
+static int	is_bottom(t_cylinder *cy, t_ray *ray, t_hit_record *rec)
+{
+	if (check_one_bottom(cy, ray, rec, FIRST) == FALSE)
+	{
+		if (check_one_bottom(cy, ray, rec, SECOND) == FALSE)
+			return (FALSE);
+	}
+	else
+		check_one_bottom(cy, ray, rec, SECOND);
+	rec->point = ray_at(ray, rec->t);
+	set_face_normal(ray, rec);
+	return (TRUE);
+}
+
+static int	is_side(t_cylinder *cy, t_ray *ray, t_hit_record *rec)
 {
 	double	t;
 
@@ -105,3 +81,28 @@ int	is_side(t_cylinder *cy, t_ray *ray, t_hit_record *rec)
 	rec->point = ray_at(ray, t);
 	return (TRUE);
 }
+
+double	hit_cylinder(t_object *cy_obj, t_ray *ray, t_hit_record *rec)
+{
+	t_cylinder	*cy;
+
+	cy = cy_obj->element;
+	if (is_bottom(cy, ray, rec) == FALSE)
+	{
+		if (is_side(cy, ray, rec) == FALSE)
+			return (FALSE);
+	}
+	else
+		is_side(cy, ray, rec);
+	//if (is_checker(cy_obj))
+	//{
+		// if (checker_point(rec->point))
+		// 	rec->reflect = make_color(255,0,0);
+		// else
+		// 	rec->reflect = make_color(0,0,255);
+	//}
+	//else
+		rec->reflect = cy_obj->reflect;
+	return (TRUE);
+}
+

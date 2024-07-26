@@ -6,7 +6,7 @@
 /*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 19:57:40 by jjhang            #+#    #+#             */
-/*   Updated: 2024/07/15 17:13:55 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/24 14:20:46 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,16 @@ static void	obj_turnout(char **line, t_container **data)
 		rt_error_handler("camera point", "only a argument is required.", 9);
 	else if (**line == 'L')
 		get_light_data(data, line);
+	else if (ft_strncmp("cone", *line, 4) == 0)
+		get_cone_data(data, line);
 	else if (ft_strncmp("sp", *line, 2) == 0)
 		get_sphere_data(data, line);
 	else if (ft_strncmp("pl", *line, 2) == 0)
 		get_plane_data(data, line);
 	else if (ft_strncmp("cy", *line, 2) == 0)
 		get_cylinder_data(data, line);
+	else if (ft_strncmp("tri", *line, 2) == 0)
+		get_triangle_data(data, line);
 	else
 		rt_error_handler("parse error near", *line, 127);
 }
@@ -64,7 +68,6 @@ static void	set_container(char *filename, t_container **data)
 		free(line);
 		line = NULL;
 	}
-	// edit_objects_vector(*data);
 }
 
 t_container	*minirt_parser(int argc, char *argv[])

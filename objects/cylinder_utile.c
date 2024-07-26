@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   cylinder_utile.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 22:03:48 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/16 18:11:04 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/07/18 18:16:30 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "objects.h"
 
-t_ray	get_mid_ray(t_cylinder *cy, t_ray *ray)
+static t_ray	get_mid_ray(t_cylinder *cy, t_ray *ray)
 {
 	t_ray	t_ray;
 	t_plane	*bottom;
