@@ -80,7 +80,7 @@ t_color	point_light_get(t_container *scene, t_light *light)
 	light_ray = ray_init(vec_plus_vec(scene->rec.point, \
 	vec_mult_scal(scene->rec.normal, EPSILON)), light_dir);
 	if (in_shadow(scene->object, light_ray, vec_len(light_dir)))
-		return (make_color(0, 0, 0));
+			return (make_color(0, 0, 0));
 	light_dir = vec_unit(vec_minus_vec(light->origin, scene->rec.point));
 	diffuse = get_diffuse(light, scene, light_dir);
 	specular = get_specular(light, scene, light_dir);

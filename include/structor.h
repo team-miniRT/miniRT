@@ -6,7 +6,7 @@
 /*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 19:47:57 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/29 21:59:32 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/07/29 20:44:20 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,7 @@ typedef struct s_plane
 {
 	t_vec	plane_vec;
 	double	constant;
+	int		skin;
 }	t_plane;
 
 typedef struct s_cylinder
