@@ -6,7 +6,7 @@
 #    By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/08 20:14:57 by jjhang            #+#    #+#              #
-#    Updated: 2024/07/26 18:38:21 by jjhang           ###   ########.fr        #
+#    Updated: 2024/07/29 20:20:13 by jjhang           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,8 @@ PARSER_FILES = edit_objects_vector.c \
 				is_valid_file.c \
 				minirt_parser.c \
 				rt_error_handler.c \
-				skip_white_space.c
+				skip_white_space.c \
+				get_type_data.c
 
 VEC_FILES = vec_div_mul.c \
 			vec_init.c \

@@ -6,7 +6,7 @@
 /*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 00:19:49 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/20 00:51:03 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/29 21:24:45 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ t_color	phong_lighting(t_container	*scene)
 			point_light_get(scene, lights->element));
 		lights = lights->next;
 	}
-	light_color = vec_plus_vec(light_color, *scene->ambient);
+	if (vec_len(light_color) != 0)
+		light_color = vec_plus_vec(light_color, *scene->ambient);
 	return (vec_min(vec_mult_vec(light_color, scene->rec.reflect), \
 	make_color(1, 1, 1)));
 }
@@ -78,7 +79,7 @@ t_color	point_light_get(t_container *scene, t_light *light)
 	light_ray = ray_init(vec_plus_vec(scene->rec.point, \
 	vec_mult_scal(scene->rec.normal, EPSILON)), light_dir);
 	if (in_shadow(scene->object, light_ray, vec_len(light_dir)))
-		return (make_color(0, 0, 0));
+			return (make_color(0, 0, 0));
 	light_dir = vec_unit(vec_minus_vec(light->origin, scene->rec.point));
 	diffuse = get_diffuse(light, scene, light_dir);
 	specular = get_specular(light, scene, light_dir);

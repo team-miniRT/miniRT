@@ -6,7 +6,7 @@
 /*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 19:58:15 by jjhang            #+#    #+#             */
-/*   Updated: 2024/07/25 16:53:39 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/29 19:44:25 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,5 @@ t_object	*get_t_object(t_object_type type, \
 							void *element, t_container **data, char **line);
 int			is_comment(char **line);
 void		skip_string(char **line);
+int			get_skin_type(char **line);
 #endif

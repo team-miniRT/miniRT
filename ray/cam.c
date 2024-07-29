@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cam.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 16:19:57 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/15 15:49:15 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/07/29 17:55:56 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ t_canvas	canvas_init(int width, int height)
 
 	canvas.width = width;
 	canvas.height = height;
-	// canvas.aspect_ratio = (double)width / (double)height;
 	canvas.aspect_ratio = (double)height / (double)width;
 	return (canvas);
 }

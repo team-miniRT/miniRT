@@ -6,7 +6,7 @@
 /*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 19:47:57 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/26 18:41:16 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/29 20:44:20 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef int	t_object_type;
 # define TRI 4
 # define CONE 5
 
-# define CONE_N 20
+# define CONE_N 4
 
 # define WIDTH 1920
 # define HEIGHT 1080
@@ -117,6 +117,7 @@ typedef struct s_plane
 {
 	t_vec	plane_vec;
 	double	constant;
+	int		skin;
 }	t_plane;
 
 typedef struct s_cylinder
