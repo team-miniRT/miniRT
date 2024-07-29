@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sphere.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 17:14:02 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/19 21:42:50 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/29 19:34:03 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ t_sphere	*init_sphere(t_point center, double radius)
 	sp->center = center;
 	sp->radius = radius;
 	sp->radius_square = radius * radius;
+	sp->x = 0;
+	sp->y = 0;
 	return (sp);
 }
 

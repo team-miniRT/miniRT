@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   rt_utiles.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 16:53:52 by jjhang            #+#    #+#             */
 /*   Updated: 2024/07/29 19:34:54 by jjhang           ###   ########.fr       */

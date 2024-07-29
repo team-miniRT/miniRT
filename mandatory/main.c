@@ -6,7 +6,7 @@
 /*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 19:56:55 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/15 14:58:11 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/07/29 21:58:22 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,16 +67,34 @@ void	prt_pixel(t_vars *vars, t_container *scene)
 	}
 }
 
+t_color	calc_color_point(t_container *scene, double pixel_x, double pixel_y)
+{
+	t_color	pixel_color;
+	double	x_weight;
+	double	y_weight;
+
+	x_weight = (pixel_x) / (scene->canvas.width - 1);
+	y_weight = 1 - (pixel_y) / (scene->canvas.height - 1);
+	scene->ray = ray_primary(scene->camera, x_weight, y_weight);
+	pixel_color = ray_color(scene);
+	return (pixel_color);
+}
+
 void	calc_color(t_container *scene, double pixel_x, \
 					double pixel_y, t_vars *vars)
 {
-	double	x_weight;
-	double	y_weight;
-	t_color	pixel_color;
+	//double	x_weight;
+	//double	y_weight;
+	t_color	pixel_color1;
+	t_color	pixel_color2;
 
-	x_weight = (double)pixel_x / (scene->canvas.width - 1);
-	y_weight = 1 - (double)pixel_y / (scene->canvas.height - 1);
-	scene->ray = ray_primary(scene->camera, x_weight, y_weight);
-	pixel_color = ray_color(scene);
-	print_color(&pixel_color, pixel_x, pixel_y, vars);
+	pixel_color1 = calc_color_point(scene, pixel_x + 0.5, pixel_y + 0.5);
+	pixel_color2 = calc_color_point(scene, pixel_x, pixel_y + 0.5);
+	pixel_color2 = vec_plus_vec(pixel_color1, pixel_color2);
+	pixel_color1 = calc_color_point(scene, pixel_x, pixel_y);
+	pixel_color2 = vec_plus_vec(pixel_color1, pixel_color2);
+	pixel_color1 = calc_color_point(scene, pixel_x + 0.5, pixel_y);
+	pixel_color2 = vec_plus_vec(pixel_color1, pixel_color2);
+	pixel_color2 = vec_mult_scal(pixel_color2, 0.25);
+	print_color(&pixel_color2, pixel_x, pixel_y, vars);
 }

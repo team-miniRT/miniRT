@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   objects.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 17:03:54 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/24 23:29:18 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/29 19:31:16 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,7 @@ double		get_meet_point(t_ray v_ray, t_ray *ray);
 int			checker_point(t_point p);
 t_triangle	*init_triangle(t_point v, t_point w, t_point l);
 double		hit_triangle(t_object *obj, t_ray *ray, t_hit_record *rec);
+t_color		calctexture(t_sphere *sp);
+
+
 #endif

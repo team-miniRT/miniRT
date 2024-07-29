@@ -3,7 +3,7 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+         #
+#    By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/08 20:14:57 by jjhang            #+#    #+#              #
 #    Updated: 2024/07/29 20:20:13 by jjhang           ###   ########.fr        #

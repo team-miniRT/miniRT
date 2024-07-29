@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   get_camera_data.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 04:40:22 by jjhang            #+#    #+#             */
 /*   Updated: 2024/07/26 20:18:02 by jjhang           ###   ########.fr       */
