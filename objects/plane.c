@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   plane.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 01:04:42 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/24 13:47:40 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/29 21:32:34 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,15 @@ double	hit_plane(t_object *pl_obj, t_ray *ray, t_hit_record *rec)
 	if (rec->t < rec->tmin || rec->t > rec->tmax)
 		return (FALSE);
 	rec->normal = pl->plane_vec;
-	//if (is_checker(pl_obj) == TRUE)
+	//if (pl_obj->skin == e_check)
 	//{
-	// if (checker_point(rec->point))
-	// 	rec->reflect = make_color(255, 0, 0);
-	// else
-	// 	rec->reflect = make_color(255, 255, 255);
+	 if (checker_point(rec->point))
+	 	rec->reflect = make_color(1,1,1);
+	 else
+	 	rec->reflect = make_color(0,0,0);
 	//}
 	//else
-	rec->reflect = pl_obj->reflect;
+	//rec->reflect = pl_obj->reflect;
 	set_face_normal(ray, rec);
 	return (TRUE);
 }

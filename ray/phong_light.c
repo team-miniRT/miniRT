@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phong_light.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 00:19:49 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/20 00:51:03 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/29 21:22:17 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,10 @@ t_color	phong_lighting(t_container	*scene)
 			point_light_get(scene, lights->element));
 		lights = lights->next;
 	}
-	light_color = vec_plus_vec(light_color, *scene->ambient);
+	//if (scene->object->type == SP)
+	//	scene->rec.reflect = calctexture(scene->object->element);
+	if (vec_len(light_color) != 0)
+		light_color = vec_plus_vec(light_color, *scene->ambient);
 	return (vec_min(vec_mult_vec(light_color, scene->rec.reflect), \
 	make_color(1, 1, 1)));
 }
@@ -72,7 +75,6 @@ t_color	point_light_get(t_container *scene, t_light *light)
 	t_color	specular;
 	t_ray	light_ray;
 	double	brightness;
-	// static int	idx = 0;
 
 	light_dir = vec_minus_vec(light->origin, scene->rec.point);
 	light_ray = ray_init(vec_plus_vec(scene->rec.point, \
@@ -83,9 +85,6 @@ t_color	point_light_get(t_container *scene, t_light *light)
 	diffuse = get_diffuse(light, scene, light_dir);
 	specular = get_specular(light, scene, light_dir);
 	brightness = light->bright_ratio * LUMEN;
-	//if (vec_len(specular) > 0.8)
-	//{
-	//	return (make_color(1, 1, 1));
-	//}
 	return (vec_mult_scal(vec_plus_vec(diffuse, specular), brightness));
+	return (vec_mult_scal(specular, brightness));
 }

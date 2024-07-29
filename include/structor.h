@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structor.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 19:47:57 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/26 18:41:16 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/29 21:59:32 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef int	t_object_type;
 # define TRI 4
 # define CONE 5
 
-# define CONE_N 20
+# define CONE_N 160
 
 # define WIDTH 1920
 # define HEIGHT 1080
@@ -100,11 +100,23 @@ typedef struct s_hit_record
 	t_color	reflect;
 }	t_hit_record;
 
+typedef struct s_skin
+{
+	t_vars	*img;
+	int		x;
+	int		y;
+	int		x_len;
+	int		y_len;
+}	t_skin;
+
 typedef struct s_sphere
 {
+	//t_skin		skin;
 	t_point		center;
 	double		radius;
 	double		radius_square;
+	int			x;
+	int			y;
 }	t_sphere;
 
 //typedef struct s_line
@@ -150,7 +162,6 @@ typedef struct s_light
 typedef struct s_object
 {
 	t_object_type	type;
-	t_object_type	skin;
 	void			*img[10];
 	void			*element;
 	void			*next;
