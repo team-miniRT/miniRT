@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+         #
+#    By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/08 20:14:57 by jjhang            #+#    #+#              #
-#    Updated: 2024/07/29 20:20:13 by jjhang           ###   ########.fr        #
+#    Updated: 2024/07/30 20:39:01 by jjhang           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,8 @@ PARSER_FILES = edit_objects_vector.c \
 				minirt_parser.c \
 				rt_error_handler.c \
 				skip_white_space.c \
-				get_type_data.c
+				get_type_data.c \
+				get_img_file.c
 
 VEC_FILES = vec_div_mul.c \
 			vec_init.c \

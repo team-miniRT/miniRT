@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structor.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 19:47:57 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/29 20:44:20 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/30 20:45:37 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,16 @@ typedef int	t_object_type;
 # define TRI 4
 # define CONE 5
 
-# define CONE_N 160
+# define CONE_N 8
 
 # define WIDTH 1920
 # define HEIGHT 1080
 
 # define EPSILON 1e-6
 # define LUMEN 3
+
+# define ORIGIN 0
+# define CHANGE 1
 
 # define FIRST 1
 # define SECOND -1
@@ -100,18 +103,19 @@ typedef struct s_hit_record
 	t_color	reflect;
 }	t_hit_record;
 
-typedef struct s_skin
+typedef struct s_img
 {
-	t_vars	*img;
-	int		x;
-	int		y;
-	int		x_len;
-	int		y_len;
-}	t_skin;
+    void    *img;
+    char    *addr;
+    int     bits_per_pixel;
+    int     line_length;
+    int     endian;
+    int     width;
+    int     height;
+}	t_img;
 
 typedef struct s_sphere
 {
-	//t_skin		skin;
 	t_point		center;
 	double		radius;
 	double		radius_square;
@@ -163,7 +167,8 @@ typedef struct s_light
 typedef struct s_object
 {
 	t_object_type	type;
-	void			*img[10];
+	t_object_type	skin;
+	t_img			*img;
 	void			*element;
 	void			*next;
 	t_color			reflect;

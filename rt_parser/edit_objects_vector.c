@@ -6,7 +6,7 @@
 /*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 23:15:25 by jjhang            #+#    #+#             */
-/*   Updated: 2024/07/29 20:13:50 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/31 10:13:27 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ static void	object_correction(t_vec correction_factor, t_object *obj)
 	else if (obj->type == PL)
 	{
 		pl = (t_plane *)obj->element;
-		pl->plane_vec = vec_minus_vec(pl->plane_vec,correction_factor);
+		// pl->constant = -1 * vec_inner_pro(vec_minus_vec(point - correction_factor), )
+		// pl->plane_vec = vec_minus_vec(pl->plane_vec,correction_factor);
 	}
 	else if (obj->type == CY)
 	{

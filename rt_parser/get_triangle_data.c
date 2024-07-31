@@ -6,7 +6,7 @@
 /*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 07:30:42 by jjhang            #+#    #+#             */
-/*   Updated: 2024/07/29 20:16:35 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/31 10:20:04 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,11 @@ t_object	*get_triangle_data(t_container **data, char **line)
 
 	(*line) += 3;
 	vec1 = get_3d_coordinates("triangle", line);
+	vec1 = vec_minus_vec(vec1, (*data)->camera->orig);
 	vec2 = get_3d_coordinates("triangle", line);
+	vec2 = vec_minus_vec(vec2, (*data)->camera->orig);
 	vec3 = get_3d_coordinates("triangle", line);
+	vec3 = vec_minus_vec(vec3, (*data)->camera->orig);
 	reflect = get_rgb_color("triangle", line);
 	obj = object_new(TRI, NULL, reflect);
 	obj->element = init_triangle(vec1, vec2, vec3);

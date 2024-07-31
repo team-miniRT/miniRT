@@ -6,7 +6,7 @@
 /*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 05:59:52 by jjhang            #+#    #+#             */
-/*   Updated: 2024/07/29 19:23:10 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/31 10:16:50 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ t_object	*get_light_data(t_container **data, char **line)
 	if (light == NULL)
 		rt_error_handler("light", "ft_calloc failed", 9);
 	light->origin = get_3d_coordinates("light", line);
+	light->origin = vec_minus_vec(light->origin, (*data)->camera->orig);
 	light->bright_ratio = get_ratio(line);
 	skip_white_space(line);
 	if (**line != '\0')

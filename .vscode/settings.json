@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "rt_parser.h": "c",
+        "minirt.h": "c"
+    }
+}

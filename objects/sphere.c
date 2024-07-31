@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sphere.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 17:14:02 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/29 19:34:03 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/07/30 20:29:46 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,61 @@ t_bool	get_discriminant(t_sphere *sp, double *root, \
 	return (TRUE);
 }
 
+double	clamp(double value, double min, double max)
+{
+	if (value < min)
+		return (min);
+	if (value > max)
+		return (max);
+	return (value);
+}
+
+t_color	get_color_from_texture(t_img *img, double u, double v)
+{
+	int		x;
+	int		y;
+	int		offset;
+	t_color	color;
+
+	u = clamp(u, 0.0, 1.0);
+	v = clamp(v, 0.0, 1.0);
+	x = (int)(u * (img->width - 1));
+	y = (int)(v * (img->height - 1));
+	offset = (y * img->line_length + x * (img->bits_per_pixel / 8));
+    if (offset < 0 || offset >= img->line_length * img->height)
+		rt_error_handler("texture mapping", "invalid offset", 1);
+	color.x = (*(unsigned char *)(img->addr + offset + 2)) / 255.0;
+	color.y = (*(unsigned char *)(img->addr + offset + 1)) / 255.0;
+	color.z = (*(unsigned char *)(img->addr + offset + 0)) / 255.0;
+	return (color);
+}
+
+void	calculate_texture_coordinates(t_vec p, t_sphere *sp, double *u, double *v)
+{
+	double theta; // 위도
+	double phi; // 경도
+
+	theta = acos(clamp(p.y / sp->radius, -1.0, 1.0)); // 위도
+	phi = atan2(p.z, p.x); // 경도
+	*u = 1 - (phi + M_PI) / (2 * M_PI); // u 좌표
+	*v = (theta) / M_PI; // v 좌표
+}
+
+void	texture_to_sphere(t_sphere *sp, t_img *img, t_hit_record *rec)
+{
+	t_vec	p;
+	double	u;
+	double	v;
+
+	p = vec_minus_vec(rec->point, sp->center);
+	// theta = acos(p.y / sp->radius);
+	// phi = atan2(p.z, p.x);
+	// u = 1 - (phi + M_PI) / (2 * M_PI);
+	// v = (theta + M_PI / 2) / M_PI;
+	calculate_texture_coordinates(p, sp, &u, &v);
+	rec->reflect = get_color_from_texture(img, u, v);
+}
+
 double	hit_sphere(t_object *sp_obj, t_ray *ray, t_hit_record *rec)
 {
 	double		root;
@@ -65,10 +120,11 @@ double	hit_sphere(t_object *sp_obj, t_ray *ray, t_hit_record *rec)
 	rec->t = root;
 	rec->point = ray_at(ray, root);
 	rec->normal = vec_unit(vec_div(vec_minus_vec(rec->point, sp->center), sp->radius));
-	//printf("sp_normal : ");
-	//print_point(rec->normal);
 	set_face_normal(ray, rec);
-	rec->reflect = sp_obj->reflect;
+	if (sp_obj->skin == e_img)
+		texture_to_sphere(sp, sp_obj->img, rec);
+	else
+		rec->reflect = sp_obj->reflect;
 	return (TRUE);
 }
 
