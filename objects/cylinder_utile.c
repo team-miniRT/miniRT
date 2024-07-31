@@ -6,7 +6,7 @@
 /*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 22:03:48 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/31 11:52:27 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/08/01 03:21:58 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,9 @@ double	get_meet_point(t_ray v_ray, t_ray *ray)
 {
 	double	t;
 
+	//현준님이 찾아주심 :: rs-> div 0
+	if ((v_ray.dir.y * ray->dir.x) - (ray->dir.y * v_ray.dir.x) == 0)
+		return (-1);
 	t = (v_ray.dir.x * (ray->orig.y - v_ray.orig.y) - v_ray.dir.y * \
 		(ray->orig.x - v_ray.orig.x)) / ((v_ray.dir.y * ray->dir.x) - \
 		(ray->dir.y * v_ray.dir.x));

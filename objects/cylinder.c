@@ -6,7 +6,7 @@
 /*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 19:15:08 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/24 13:45:17 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/08/01 03:20:25 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ t_cylinder	*init_cylinder(t_vec n, t_point center, \
 	cy->radius = radius;
 	return (cy);
 }
-
 static int	check_one_bottom(t_cylinder *cy, t_ray *ray, t_hit_record *rec, int flag)
 {
 	t_point	r_center;
@@ -54,15 +53,15 @@ static int	check_one_bottom(t_cylinder *cy, t_ray *ray, t_hit_record *rec, int f
 	return (TRUE);
 }
 
-static int	is_bottom(t_cylinder *cy, t_ray *ray, t_hit_record *rec)
+/*고쳐주세요static*/ int	is_bottom(t_cylinder *cy, t_ray *ray, t_hit_record *rec)
 {
-	if (check_one_bottom(cy, ray, rec, FIRST) == FALSE)
-	{
-		if (check_one_bottom(cy, ray, rec, SECOND) == FALSE)
-			return (FALSE);
-	}
-	else
-		check_one_bottom(cy, ray, rec, SECOND);
+	int	hit_top;
+	int	hit_bottom;
+
+	hit_top = check_one_bottom(cy, ray, rec, FIRST);
+	hit_bottom = check_one_bottom(cy, ray, rec, SECOND);
+	if (hit_top == FALSE && hit_bottom == FALSE)
+		return (FALSE);
 	rec->point = ray_at(ray, rec->t);
 	set_face_normal(ray, rec);
 	return (TRUE);
@@ -85,15 +84,23 @@ static int	is_side(t_cylinder *cy, t_ray *ray, t_hit_record *rec)
 double	hit_cylinder(t_object *cy_obj, t_ray *ray, t_hit_record *rec)
 {
 	t_cylinder	*cy;
+	int			hit_bottom;
+	int			hit_side;
 
 	cy = cy_obj->element;
-	if (is_bottom(cy, ray, rec) == FALSE)
-	{
-		if (is_side(cy, ray, rec) == FALSE)
-			return (FALSE);
-	}
-	else
-		is_side(cy, ray, rec);
+	hit_bottom = is_bottom(cy, ray, rec);
+	hit_side = is_side(cy, ray, rec);
+	// if (is_bottom(cy, ray, rec) == FALSE)
+	// {
+	// 	if (is_side(cy, ray, rec) == FALSE)
+	// 		return (FALSE);
+	// }
+	// else
+	// 	is_side(cy, ray, rec);
+	if (!hit_bottom && !hit_side)
+		return (FALSE);
+	if (hit_bottom && hit_side)
+		rec->t = fmin(rec->t, rec->tmax);
 	//if (is_checker(cy_obj))
 	//{
 		// if (checker_point(rec->point))
@@ -103,6 +110,7 @@ double	hit_cylinder(t_object *cy_obj, t_ray *ray, t_hit_record *rec)
 	//}
 	//else
 		rec->reflect = cy_obj->reflect;
+	// rec->reflect = make_color(1,1,1);
 	return (TRUE);
 }
 

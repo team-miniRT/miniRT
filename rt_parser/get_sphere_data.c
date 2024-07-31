@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_sphere_data.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 12:41:53 by jjhang            #+#    #+#             */
-/*   Updated: 2024/07/31 13:52:20 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/07/31 19:14:36 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ t_object	*get_sphere_data(t_container **data, char **line)
 	obj->skin = get_skin_type(line);
 	if (obj->skin == e_img)
 	{
-		obj->img = get_img_file(data, "./xpm_files/night.xpm");
-		obj->normal = get_img_file(data, "./xpm_files/nightnormal.xpm");
+		obj->img = get_img_file(data, "./xpm_files/earth.xpm");
+		obj->normal = get_img_file(data, "./xpm_files/earthnormal.xpm");
 	}
 	object_addback(&(*data)->object, obj);
 	return (obj);
