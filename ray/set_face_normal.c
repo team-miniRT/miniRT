@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_comment.c                                       :+:      :+:    :+:   */
+/*   set_face_normal.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/15 17:02:15 by jjhang            #+#    #+#             */
-/*   Updated: 2024/07/31 11:13:22 by jjhang           ###   ########.fr       */
+/*   Created: 2024/07/31 11:43:27 by jjhang            #+#    #+#             */
+/*   Updated: 2024/07/31 11:46:48 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rt_parser.h"
+#include "ray.h"
 
-int	is_comment(char **line)
+void	set_face_normal(t_ray *ray, t_hit_record *rec)
 {
-	if (**line == '#')
-		return (1);
-	return (0);
-}
-
-void	skip_string(char **line)
-{
-	while (**line != '\0')
-		(*line)++;
+	if (vec_inner_pro(ray->dir, rec->normal) < 0)
+		rec->front_face = TRUE;
+	else
+		rec->front_face = FALSE;
+	if (rec->front_face == FALSE)
+		rec->normal = vec_mult_scal(rec->normal, -1);
 }

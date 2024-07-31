@@ -6,7 +6,7 @@
 /*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:55:51 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/19 23:51:10 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/31 11:40:53 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ t_light		*light_point(t_point light_origin, t_color light_color, \
 t_color		phong_lighting(t_container	*scene);
 t_color		point_light_get(t_container *scene, t_light *light);
 t_bool		in_shadow(t_object *objs, t_ray light_ray, double light_len);
+t_color		get_color_from_texture(t_img *img, double u, double v);
 
 #endif

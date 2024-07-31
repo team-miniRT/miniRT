@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rt_utiles.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 16:53:52 by jjhang            #+#    #+#             */
-/*   Updated: 2024/07/29 19:34:54 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/31 11:42:21 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@ typedef enum e_skin
 }	t_skin;
 
 int	is_char_range(int nbr);
+double	clamp(double value, double min, double max);
 
 #endif

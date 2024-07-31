@@ -6,7 +6,7 @@
 /*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 19:47:57 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/30 20:45:37 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/31 11:34:55 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,7 @@ typedef int	t_object_type;
 # define FIRST 1
 # define SECOND -1
 
-//enum {
-//	FIRST,
-//	SECOND
-//};
+typedef struct s_container t_container;
 
 typedef struct s_vec
 {
@@ -123,12 +120,6 @@ typedef struct s_sphere
 	int			y;
 }	t_sphere;
 
-//typedef struct s_line
-//{
-//	t_point	l_point;
-//	t_vec	l_vec;
-//}	t_line;
-
 typedef struct s_plane
 {
 	t_vec	plane_vec;
@@ -156,6 +147,16 @@ typedef struct s_triangle
 	double	scale_factor;
 	t_ray	*ray;
 }	t_triangle;
+
+typedef struct s_cone
+{
+	t_container	*data;
+	t_point	origin;
+	t_vec	unit_vec;
+	double	radius;
+	double	height;
+	t_color	reflect;
+}	t_cone;
 
 typedef struct s_light
 {
