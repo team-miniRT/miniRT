@@ -6,7 +6,7 @@
 /*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 13:48:09 by jjhang            #+#    #+#             */
-/*   Updated: 2024/07/26 20:14:56 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/31 10:17:30 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,11 @@ void	init_cone(t_point vec1, t_vec dir, t_color reflect, t_vec meter, t_containe
 		obj->type = TRI;
 		obj->reflect = reflect;
 		object_addback(&(*data)->object, obj);
+		obj = ft_calloc(1, sizeof(t_object));
+		obj->element = init_triangle(rotate_around_point(base_point, vec1, dir, M_PI / 4), vec2, vec3);
+		obj->type = TRI;
+		obj->reflect = reflect;
+		object_addback(&(*data)->object, obj);
 		vec2 = vec3;
 		idx++;
 	}
@@ -72,6 +77,7 @@ void	init_cone(t_point vec1, t_vec dir, t_color reflect, t_vec meter, t_containe
 
 	(*line) += 4;
 	points = get_3d_coordinates("cone", line);
+	points = vec_minus_vec(points, (*data)->camera->orig);
 	vec = get_vector("cone", line);
 	meter.x = get_meter(line) / 2;
 	meter.y = get_meter(line);

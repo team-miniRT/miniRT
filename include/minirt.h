@@ -6,14 +6,13 @@
 /*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 09:45:25 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/08 20:43:46 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/30 15:56:21 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIRT_H
 # define MINIRT_H
 
-# include <mlx.h>
 # include "rt_parser.h"
 
 # define RED 0

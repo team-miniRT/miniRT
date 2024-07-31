@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 19:56:55 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/29 21:58:22 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/07/30 16:02:28 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,21 +33,16 @@ void	print_color(t_color *color, int pixel_x, int pixel_y, t_vars *vars)
 int	main(int argc, char *argv[])
 {
 	t_container	*data;
-	t_vars		vars;
 
 	data = minirt_parser(argc, argv);
 	if (data == NULL)
 		exit (1);
-	vars.mlx = mlx_init();
-	vars.win = mlx_new_window(vars.mlx, WIDTH, HEIGHT, "miniRT");
-	vars.img = mlx_new_image(vars.mlx, WIDTH, HEIGHT);
-	vars.addr = mlx_get_data_addr(vars.img, &vars.bits_per_pixel, \
-	&vars.line_length, &vars.endian);
-	prt_pixel(&vars, data);
-	mlx_put_image_to_window(vars.mlx, vars.win, vars.img, 0, 0);
-	mlx_key_hook(vars.win, key_hook, &vars);
-	mlx_hook(vars.win, 17, 0, exit_hook, 0);
-	mlx_loop(vars.mlx);
+	prt_pixel(&data->vars, data);
+	mlx_put_image_to_window(data->vars.mlx, data->vars.win, \
+							data->vars.img, 0, 0);
+	mlx_key_hook(data->vars.win, key_hook, &data->vars);
+	mlx_hook(data->vars.win, 17, 0, exit_hook, 0);
+	mlx_loop(data->vars.mlx);
 	exit (0);
 }
 

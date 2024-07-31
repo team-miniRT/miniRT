@@ -6,7 +6,7 @@
 /*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 19:58:15 by jjhang            #+#    #+#             */
-/*   Updated: 2024/07/29 19:44:25 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/30 16:16:11 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # define TRUE 1
 # define ERROR -1
 
+# include <mlx.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <string.h>
@@ -32,6 +33,7 @@
 
 typedef struct s_container
 {
+	t_vars			vars;
 	t_canvas		canvas;
 	t_color			*ambient;
 	t_camera		*camera;
@@ -62,10 +64,9 @@ double		get_meter(char **line);
 void		skip_white_space(char **line);
 void		edit_objects_vector(t_container *data);
 int			rt_error_handler(char *filename, char *error_msg, int error_code);
-t_object	*new_object(t_object_type type, void *element, t_color reflect);
-t_object	*get_t_object(t_object_type type, \
-							void *element, t_container **data, char **line);
 int			is_comment(char **line);
 void		skip_string(char **line);
 int			get_skin_type(char **line);
+t_img		*get_img_file(t_container **data, char *filepath);
+
 #endif
