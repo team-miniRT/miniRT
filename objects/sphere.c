@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sphere.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 17:14:02 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/31 11:49:09 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/31 13:45:58 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,15 +65,20 @@ void	calculate_texture_coordinates(t_vec p, t_sphere *sp, \
 	*v = (theta) / M_PI;
 }
 
-void	texture_to_sphere(t_sphere *sp, t_img *img, t_hit_record *rec)
+void	texture_to_sphere(t_sphere *sp, t_object *sp_obj, t_hit_record *rec)
 {
 	t_vec	p;
 	double	u;
 	double	v;
+	t_color	normal;
 
 	p = vec_minus_vec(rec->point, sp->center);
 	calculate_texture_coordinates(p, sp, &u, &v);
-	rec->reflect = get_color_from_texture(img, u, v);
+	rec->reflect = get_color_from_texture(sp_obj->img, u, v);
+	normal = get_color_from_texture(sp_obj->normal, u, v);
+	//normal = vec_plus_scal(vec_mult_scal(normal, -2), 1, 1, 1);
+	rec->normal = vec_plus_scal(vec_mult_scal(normal, -2), 1, 1, 1);
+	//rec->normal = vec_div(vec_plus_vec(normal, rec->normal), 2);
 }
 
 double	hit_sphere(t_object *sp_obj, t_ray *ray, t_hit_record *rec)
@@ -91,7 +96,7 @@ double	hit_sphere(t_object *sp_obj, t_ray *ray, t_hit_record *rec)
 							sp->radius));
 	set_face_normal(ray, rec);
 	if (sp_obj->skin == e_img)
-		texture_to_sphere(sp, sp_obj->img, rec);
+		texture_to_sphere(sp, sp_obj, rec);
 	else
 	{
 		rec->reflect = sp_obj->reflect;

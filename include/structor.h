@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structor.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 19:47:57 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/31 11:34:55 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/31 13:04:34 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,13 +102,13 @@ typedef struct s_hit_record
 
 typedef struct s_img
 {
-    void    *img;
-    char    *addr;
-    int     bits_per_pixel;
-    int     line_length;
-    int     endian;
-    int     width;
-    int     height;
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+	int		width;
+	int		height;
 }	t_img;
 
 typedef struct s_sphere
@@ -170,6 +170,7 @@ typedef struct s_object
 	t_object_type	type;
 	t_object_type	skin;
 	t_img			*img;
+	t_img			*normal;
 	void			*element;
 	void			*next;
 	t_color			reflect;
