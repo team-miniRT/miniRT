@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sphere.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 17:14:02 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/31 13:45:58 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/08/01 04:02:46 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,9 @@ void	texture_to_sphere(t_sphere *sp, t_object *sp_obj, t_hit_record *rec)
 	calculate_texture_coordinates(p, sp, &u, &v);
 	rec->reflect = get_color_from_texture(sp_obj->img, u, v);
 	normal = get_color_from_texture(sp_obj->normal, u, v);
-	//normal = vec_plus_scal(vec_mult_scal(normal, -2), 1, 1, 1);
-	rec->normal = vec_plus_scal(vec_mult_scal(normal, -2), 1, 1, 1);
-	//rec->normal = vec_div(vec_plus_vec(normal, rec->normal), 2);
+	normal = vec_plus_scal(vec_mult_scal(normal, -2), 1, 1, 1);
+	// rec->normal = vec_plus_scal(vec_mult_scal(normal, -2), 1, 1, 1);
+	rec->normal = vec_div(vec_plus_vec(normal, rec->normal), 2);
 }
 
 double	hit_sphere(t_object *sp_obj, t_ray *ray, t_hit_record *rec)

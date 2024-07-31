@@ -6,12 +6,12 @@
 #    By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/08 20:14:57 by jjhang            #+#    #+#              #
-#    Updated: 2024/07/31 11:46:04 by jjhang           ###   ########.fr        #
+#    Updated: 2024/08/01 02:52:24 by jjhang           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Imlx -Wall -Wextra -Werror -g -g3 #-fsanitize=address
+CFLAGS = -Imlx -Wall -Wextra -Werror #-g -g3 #-fsanitize=address
 NAME = miniRT
 LIBFT = libft/libft.a
 
@@ -54,7 +54,8 @@ VEC_FILES = vec_div_mul.c \
 			vec_pro.c \
 			vec_unit.c \
 			vec_rotate.c \
-			vec_utile.c
+			vec_utile.c \
+			random_in_unit_vec.c
 
 RAY_FILES = cam.c \
 			get_color_from_texture.c \
@@ -62,7 +63,8 @@ RAY_FILES = cam.c \
 			phong_light.c \
 			ray.c \
 			set_face_normal.c \
-			shadow.c
+			shadow.c \
+			point_light_get.c
 
 HIT_FILES = hit.c
 
