@@ -6,7 +6,7 @@
 #    By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/08 20:14:57 by jjhang            #+#    #+#              #
-#    Updated: 2024/07/30 20:39:01 by jjhang           ###   ########.fr        #
+#    Updated: 2024/07/31 11:46:04 by jjhang           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,8 +30,7 @@ LIBFT_DIR = libft
 
 SRCS_FILES = main.c
 
-PARSER_FILES = edit_objects_vector.c \
-				get_ambient_lightning.c \
+PARSER_FILES = get_ambient_lightning.c \
 				get_camera_data.c \
 				get_triangle_data.c \
 				get_cylinder_data.c \
@@ -58,9 +57,11 @@ VEC_FILES = vec_div_mul.c \
 			vec_utile.c
 
 RAY_FILES = cam.c \
+			get_color_from_texture.c \
 			light.c \
 			phong_light.c \
 			ray.c \
+			set_face_normal.c \
 			shadow.c
 
 HIT_FILES = hit.c
@@ -74,7 +75,8 @@ OBJECTS_FILES = cylinder_utile.c \
 				checker.c
 
 UTILES_FILES = is_char_range.c \
-				utile.c
+				utile.c \
+				clamp.c
 
 PARSER_SRCS = $(addprefix $(PARSER_DIR)/, $(PARSER_FILES))
 VEC_SRCS = $(addprefix $(VEC_DIR)/, $(VEC_FILES))

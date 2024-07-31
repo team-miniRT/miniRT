@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:43:10 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/16 18:41:19 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/07/31 11:37:15 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ t_ray	ray_primary(t_camera *cam, double x_weight, double y_weight)
 
 t_color	ray_color(t_container *scene)
 {
-
 	scene->rec = record_init();
 	if (hit(scene->object, &scene->ray, &scene->rec))
 		return (phong_lighting(scene));

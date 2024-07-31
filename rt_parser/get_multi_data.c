@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_multi_data.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 14:14:48 by jjhang            #+#    #+#             */
-/*   Updated: 2024/07/15 16:09:21 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/07/31 11:14:54 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,7 @@ t_color	get_rgb_color(char *err_point, char **line)
 		if (**line != '\0' && **line == ',')
 			(*line)++;
 	}
-	color = vec_div(color, 255);
-	//print_point(color);
+	color = vec_div(color, 256);
 	return (color);
 }
 

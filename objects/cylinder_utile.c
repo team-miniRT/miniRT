@@ -6,7 +6,7 @@
 /*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 22:03:48 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/18 18:16:30 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/31 11:52:27 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ int	check_in_height(t_hit_record *rec, t_cylinder *cy, t_ray *ray, double t)
 
 	pl = init_plane(ray_at(ray, t), cy->c_vec);
 	center_ray = ray_init(cy->center, cy->c_vec);
-	tmpe_t = -1 * (vec_inner_pro(pl->plane_vec, center_ray.orig) + pl->constant) \
-			/ vec_inner_pro(pl->plane_vec, center_ray.dir);
+	tmpe_t = -1 * (vec_inner_pro(pl->plane_vec, center_ray.orig) + \
+	pl->constant) / vec_inner_pro(pl->plane_vec, center_ray.dir);
 	free(pl);
 	hit_middle = vec_plus_vec(cy->center, vec_mult_scal(cy->c_vec, tmpe_t));
 	if (point_to_point(hit_middle, cy->center) >= cy->height / 2)
@@ -102,7 +102,8 @@ double	get_meet_point(t_ray v_ray, t_ray *ray)
 {
 	double	t;
 
-	t = (v_ray.dir.x * (ray->orig.y - v_ray.orig.y) - v_ray.dir.y * (ray->orig.x - v_ray.orig.x)) / \
-		((v_ray.dir.y * ray->dir.x) - (ray->dir.y * v_ray.dir.x));
+	t = (v_ray.dir.x * (ray->orig.y - v_ray.orig.y) - v_ray.dir.y * \
+		(ray->orig.x - v_ray.orig.x)) / ((v_ray.dir.y * ray->dir.x) - \
+		(ray->dir.y * v_ray.dir.x));
 	return (t);
 }

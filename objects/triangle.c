@@ -6,7 +6,7 @@
 /*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 22:40:13 by jjhang            #+#    #+#             */
-/*   Updated: 2024/07/24 11:59:44 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/07/31 11:37:39 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static int	get_scale_factor(t_triangle *tr, t_ray *ray)
 	return (TRUE);
 }
 
-double hit_triangle(t_object *tr_obj, t_ray *ray, t_hit_record *rec)
+double	hit_triangle(t_object *tr_obj, t_ray *ray, t_hit_record *rec)
 {
 	t_triangle	*tr;
 	t_vec		q;

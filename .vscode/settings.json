@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "rt_parser.h": "c",
-        "minirt.h": "c"
+        "minirt.h": "c",
+        "ray.h": "c",
+        "rt_utiles.h": "c"
     }
 }

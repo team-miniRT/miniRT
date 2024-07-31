@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_comment.c                                       :+:      :+:    :+:   */
+/*   clamp.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/15 17:02:15 by jjhang            #+#    #+#             */
-/*   Updated: 2024/07/31 11:13:22 by jjhang           ###   ########.fr       */
+/*   Created: 2024/07/31 11:41:54 by jjhang            #+#    #+#             */
+/*   Updated: 2024/07/31 11:42:22 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rt_parser.h"
+#include "rt_utiles.h"
 
-int	is_comment(char **line)
+double	clamp(double value, double min, double max)
 {
-	if (**line == '#')
-		return (1);
-	return (0);
-}
-
-void	skip_string(char **line)
-{
-	while (**line != '\0')
-		(*line)++;
+	if (value < min)
+		return (min);
+	if (value > max)
+		return (max);
+	return (value);
 }
