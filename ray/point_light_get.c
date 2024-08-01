@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   point_light_get.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 02:47:58 by jjhang            #+#    #+#             */
-/*   Updated: 2024/08/01 03:46:36 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/08/01 09:03:44 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,27 +47,30 @@ t_vec	get_specular(t_light *light, t_container *scene, \
 static t_color	light_contribution(t_container *scene, t_light *light, \
 									t_vec light_dir)
 {
-    t_color	diffuse;
-    t_color	specular;
-    double	brightness;
+	t_color	diffuse;
+	t_color	specular;
+	double	brightness;
 
-    light_dir = vec_unit(light_dir);
-    diffuse = get_diffuse(light, scene, light_dir);
-    specular = get_specular(light, scene, light_dir);
-    brightness = light->bright_ratio * LUMEN;
-    return (vec_mult_scal(vec_plus_vec(diffuse, specular), brightness));
+	light_dir = vec_unit(light_dir);
+	diffuse = get_diffuse(light, scene, light_dir);
+	specular = get_specular(light, scene, light_dir);
+	brightness = light->bright_ratio * LUMEN;
+	return (vec_mult_scal(vec_plus_vec(diffuse, specular), brightness));
 }
 
 t_color point_light_get(t_container *scene, t_light *light)
 {
-    t_vec light_dir;
-    t_ray light_ray;
-    double shadow_intensity;
+	t_vec light_dir;
+	t_ray light_ray;
+	//double shadow_intensity;
 
-    light_dir = vec_minus_vec(light->origin, scene->rec.point);
-    light_ray = ray_init(vec_plus_vec(scene->rec.point, \
+	light_dir = vec_minus_vec(light->origin, scene->rec.point);
+	light_ray = ray_init(vec_plus_vec(scene->rec.point, \
 				vec_mult_scal(scene->rec.normal, EPSILON)), light_dir);
-    shadow_intensity = in_shadow(scene->object, light_ray, vec_len(light_dir));
-    t_color light_contrib = light_contribution(scene, light, light_dir);
-    return (vec_mult_scal(light_contrib, 1 - shadow_intensity));
+	if (in_shadow(scene->object, light_ray, vec_len(light_dir)))
+		return (make_color(0, 0, 0));
+	//shadow_intensity = in_shadow(scene->object, light_ray, vec_len(light_dir));
+	return (light_contribution(scene, light, light_dir));
+	//t_color light_contrib = light_contribution(scene, light, light_dir);
+	//return (vec_mult_scal(light_contrib, 1 - shadow_intensity));
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:55:51 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/08/01 04:10:31 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/08/01 09:05:58 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ t_color		ray_color(t_container *scene);
 t_light		*light_point(t_point light_origin, t_color light_color, \
 			double bright_ratio);
 t_color		phong_lighting(t_container	*scene);
-// t_bool		in_shadow(t_object *objs, t_ray light_ray, double light_len);
-double 		in_shadow(t_object *objs, t_ray light_ray, double light_len);
+ t_bool		in_shadow(t_object *objs, t_ray light_ray, double light_len);
+//double 		in_shadow(t_object *objs, t_ray light_ray, double light_len);
 t_color		get_color_from_texture(t_img *img, double u, double v);
 t_color 	point_light_get(t_container *scene, t_light *light);
 #endif
