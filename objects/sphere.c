@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   sphere.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 17:14:02 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/08/01 04:02:46 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/08/01 12:08:26 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "objects.h"
 
-t_sphere	*init_sphere(t_point center, double radius)
+t_sphere	*init_sphere(t_vec center, double radius)
 {
 	t_sphere	*sp;
 
@@ -22,8 +22,6 @@ t_sphere	*init_sphere(t_point center, double radius)
 	sp->center = center;
 	sp->radius = radius;
 	sp->radius_square = radius * radius;
-	sp->x = 0;
-	sp->y = 0;
 	return (sp);
 }
 
@@ -70,14 +68,13 @@ void	texture_to_sphere(t_sphere *sp, t_object *sp_obj, t_hit_record *rec)
 	t_vec	p;
 	double	u;
 	double	v;
-	t_color	normal;
+	t_vec	normal;
 
 	p = vec_minus_vec(rec->point, sp->center);
 	calculate_texture_coordinates(p, sp, &u, &v);
 	rec->reflect = get_color_from_texture(sp_obj->img, u, v);
 	normal = get_color_from_texture(sp_obj->normal, u, v);
 	normal = vec_plus_scal(vec_mult_scal(normal, -2), 1, 1, 1);
-	// rec->normal = vec_plus_scal(vec_mult_scal(normal, -2), 1, 1, 1);
 	rec->normal = vec_div(vec_plus_vec(normal, rec->normal), 2);
 }
 

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ray.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:43:10 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/31 11:37:15 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/08/01 12:08:26 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ray.h"
 
-t_ray	ray_init(t_point orig, t_vec dir)
+t_ray	ray_init(t_vec orig, t_vec dir)
 {
 	t_ray	ray;
 
@@ -21,9 +21,9 @@ t_ray	ray_init(t_point orig, t_vec dir)
 	return (ray);
 }
 
-t_point	ray_at(t_ray *ray, double len)
+t_vec	ray_at(t_ray *ray, double len)
 {
-	t_point	dest;
+	t_vec	dest;
 
 	dest = vec_plus_vec(ray->orig, vec_mult_scal(vec_unit(ray->dir), len));
 	return (dest);
@@ -40,7 +40,7 @@ t_ray	ray_primary(t_camera *cam, double x_weight, double y_weight)
 	return (ray);
 }
 
-t_color	ray_color(t_container *scene)
+t_vec	ray_color(t_container *scene)
 {
 	scene->rec = record_init();
 	if (hit(scene->object, &scene->ray, &scene->rec))

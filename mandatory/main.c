@@ -6,7 +6,7 @@
 /*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 19:56:55 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/08/01 09:36:15 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/08/01 12:08:05 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	prt_pixel(t_vars *vars, t_container *scene);
 void	calc_color(t_container *scene, double pixel_x, \
 					double pixel_y, t_vars *vars);
 
-void	print_color(t_color *color, int pixel_x, int pixel_y, t_vars *vars)
+void	print_color(t_vec *color, int pixel_x, int pixel_y, t_vars *vars)
 {
 	int	num;
 	int	red;
@@ -62,9 +62,9 @@ void	prt_pixel(t_vars *vars, t_container *scene)
 	}
 }
 
-t_color	calc_color_point(t_container *scene, double pixel_x, double pixel_y)
+t_vec	calc_color_point(t_container *scene, double pixel_x, double pixel_y)
 {
-	t_color	pixel_color;
+	t_vec	pixel_color;
 	double	x_weight;
 	double	y_weight;
 
@@ -78,15 +78,15 @@ t_color	calc_color_point(t_container *scene, double pixel_x, double pixel_y)
 void	calc_color(t_container *scene, double pixel_x, \
 					double pixel_y, t_vars *vars)
 {
-	t_color	pixel_color1;
-	t_color	pixel_color2;
+	t_vec	pixel_color1;
+	t_vec	pixel_color2;
 
-	pixel_color1 = calc_color_point(scene, pixel_x + 0.49, pixel_y + 0.49);
-	pixel_color2 = calc_color_point(scene, pixel_x, pixel_y + 0.49);
+	pixel_color1 = calc_color_point(scene, pixel_x + 0.4999, pixel_y + 0.4999);
+	pixel_color2 = calc_color_point(scene, pixel_x, pixel_y + 0.4999);
 	pixel_color2 = vec_plus_vec(pixel_color1, pixel_color2);
 	pixel_color1 = calc_color_point(scene, pixel_x, pixel_y);
 	pixel_color2 = vec_plus_vec(pixel_color1, pixel_color2);
-	pixel_color1 = calc_color_point(scene, pixel_x + 0.49, pixel_y);
+	pixel_color1 = calc_color_point(scene, pixel_x + 0.4999, pixel_y);
 	pixel_color2 = vec_plus_vec(pixel_color1, pixel_color2);
 	pixel_color2 = vec_mult_scal(pixel_color2, 0.25);
 	print_color(&pixel_color2, pixel_x, pixel_y, vars);

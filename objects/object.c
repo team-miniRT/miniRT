@@ -6,13 +6,13 @@
 /*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 20:39:30 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/06 22:39:16 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/08/01 12:08:05 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "objects.h"
 
-t_object	*object_new(t_object_type type, void *element, t_color reflect)
+t_object	*object_new(t_object_type type, void *element, t_vec reflect)
 {
 	t_object	*new;
 

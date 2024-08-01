@@ -6,7 +6,7 @@
 /*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 13:33:08 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/06/10 14:10:42 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/08/01 12:08:26 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ t_vec	make_vec(double x, double y, double z)
 	return (vec);
 }
 
-t_color	make_color(double x, double y, double z)
+t_vec	make_color(double x, double y, double z)
 {
-	t_color	color;
+	t_vec	color;
 
 	color.x = x;
 	color.y = y;
@@ -32,9 +32,9 @@ t_color	make_color(double x, double y, double z)
 	return (color);
 }
 
-t_point	make_point(double x, double y, double z)
+t_vec	make_point(double x, double y, double z)
 {
-	t_point	point;
+	t_vec	point;
 
 	point.x = x;
 	point.y = y;

@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   get_color_from_texture.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 11:39:32 by jjhang            #+#    #+#             */
-/*   Updated: 2024/07/31 11:47:04 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/08/01 12:08:05 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ray.h"
 
-t_color	get_color_from_texture(t_img *img, double u, double v)
+t_vec	get_color_from_texture(t_img *img, double u, double v)
 {
 	int		x;
 	int		y;
 	int		offset;
-	t_color	color;
+	t_vec	color;
 
 	u = clamp(u, 0.0, 1.0);
 	v = clamp(v, 0.0, 1.0);

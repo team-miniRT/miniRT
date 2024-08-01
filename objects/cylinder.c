@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   cylinder.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 19:15:08 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/08/01 03:20:25 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/08/01 12:08:26 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "objects.h"
 
-t_cylinder	*init_cylinder(t_vec n, t_point center, \
+t_cylinder	*init_cylinder(t_vec n, t_vec center, \
 							double height, double radius)
 {
 	t_cylinder	*cy;
@@ -26,12 +26,14 @@ t_cylinder	*init_cylinder(t_vec n, t_point center, \
 	cy->radius = radius;
 	return (cy);
 }
-static int	check_one_bottom(t_cylinder *cy, t_ray *ray, t_hit_record *rec, int flag)
+
+static int	check_one_bottom(t_cylinder *cy, t_ray *ray, \
+					t_hit_record *rec, int flag)
 {
-	t_point	r_center;
+	t_vec	r_center;
 	t_ray	c_ray;
 	double	pl_t;
-	t_point	pl_point;
+	t_vec	pl_point;
 	t_plane	*p;
 
 	c_ray = ray_init(cy->center, vec_mult_scal(cy->c_vec, flag));
@@ -44,7 +46,7 @@ static int	check_one_bottom(t_cylinder *cy, t_ray *ray, t_hit_record *rec, int f
 	free(p);
 	pl_point = ray_at(ray, pl_t);
 	if (point_to_point(r_center, pl_point) > cy->radius)
-	 	return (FALSE);
+		return (FALSE);
 	if (pl_t < rec->tmin || pl_t > rec->tmax)
 		return (FALSE);
 	rec->t = pl_t;
@@ -53,7 +55,7 @@ static int	check_one_bottom(t_cylinder *cy, t_ray *ray, t_hit_record *rec, int f
 	return (TRUE);
 }
 
-/*고쳐주세요static*/ int	is_bottom(t_cylinder *cy, t_ray *ray, t_hit_record *rec)
+static int	is_bottom(t_cylinder *cy, t_ray *ray, t_hit_record *rec)
 {
 	int	hit_top;
 	int	hit_bottom;
@@ -90,27 +92,10 @@ double	hit_cylinder(t_object *cy_obj, t_ray *ray, t_hit_record *rec)
 	cy = cy_obj->element;
 	hit_bottom = is_bottom(cy, ray, rec);
 	hit_side = is_side(cy, ray, rec);
-	// if (is_bottom(cy, ray, rec) == FALSE)
-	// {
-	// 	if (is_side(cy, ray, rec) == FALSE)
-	// 		return (FALSE);
-	// }
-	// else
-	// 	is_side(cy, ray, rec);
 	if (!hit_bottom && !hit_side)
 		return (FALSE);
 	if (hit_bottom && hit_side)
 		rec->t = fmin(rec->t, rec->tmax);
-	//if (is_checker(cy_obj))
-	//{
-		// if (checker_point(rec->point))
-		// 	rec->reflect = make_color(255,0,0);
-		// else
-		// 	rec->reflect = make_color(0,0,255);
-	//}
-	//else
-		rec->reflect = cy_obj->reflect;
-	// rec->reflect = make_color(1,1,1);
+	rec->reflect = cy_obj->reflect;
 	return (TRUE);
 }
-

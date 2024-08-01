@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_cylinder_data.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 22:08:37 by jjhang            #+#    #+#             */
-/*   Updated: 2024/07/31 10:19:11 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/08/01 12:08:26 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 t_object	*get_cylinder_data(t_container **data, char **line)
 {
 	t_object	*obj;
-	t_point		points;
+	t_vec		points;
 	t_vec		vec;
 	t_vec		meter;
-	t_color		reflect;
+	t_vec		reflect;
 
 	(*line) += 2;
 	points = get_3d_coordinates("cylinder", line);
