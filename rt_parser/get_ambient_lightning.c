@@ -6,13 +6,13 @@
 /*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 17:05:14 by jjhang            #+#    #+#             */
-/*   Updated: 2024/08/01 12:08:05 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/08/01 13:40:33 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt_parser.h"
 
-t_vec	*get_ambient_lightning(char **line)
+t_vec	*get_ambient_lightning(char **line, t_container **data)
 {
 	t_vec	*ambient;
 	double	ratio;
@@ -24,6 +24,7 @@ t_vec	*get_ambient_lightning(char **line)
 	if (ambient == NULL)
 		rt_error_handler("ambient", "ft_calloc failed", 9);
 	ratio = get_ratio(line);
+	(*data)->ratio = ratio;
 	*ambient = get_rgb_color("ambient", line);
 	*ambient = vec_mult_scal(*ambient, ratio);
 	skip_white_space(line);
