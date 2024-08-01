@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_light_data.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 05:59:52 by jjhang            #+#    #+#             */
-/*   Updated: 2024/07/31 10:16:50 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/08/01 12:08:05 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_object	*get_light_data(t_container **data, char **line)
 {
 	t_light		*light;
 	t_object	*obj;
-	t_color		reflect;
+	t_vec		reflect;
 
 	(*line)++;
 	light = (t_light *)ft_calloc(1, sizeof(t_light));

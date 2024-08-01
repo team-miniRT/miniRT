@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cylinder_utile.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 22:03:48 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/08/01 03:21:58 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/08/01 12:08:26 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ static t_ray	get_mid_ray(t_cylinder *cy, t_ray *ray)
 	t_ray	t_ray;
 	t_plane	*bottom;
 	double	c_t;
-	t_point	p1;
-	t_point	p2;
+	t_vec	p1;
+	t_vec	p2;
 
 	bottom = init_plane(cy->center, cy->c_vec);
 	t_ray = ray_init(vec_plus_vec(ray->dir, ray->orig), \
@@ -58,7 +58,7 @@ int	discriment_cy(t_ray bot_ray, t_cylinder *cy, double *root1, double *root2)
 int	check_in_height(t_hit_record *rec, t_cylinder *cy, t_ray *ray, double t)
 {
 	t_plane	*pl;
-	t_point	hit_middle;
+	t_vec	hit_middle;
 	double	tmpe_t;
 	t_ray	center_ray;
 
@@ -102,7 +102,6 @@ double	get_meet_point(t_ray v_ray, t_ray *ray)
 {
 	double	t;
 
-	//현준님이 찾아주심 :: rs-> div 0
 	if ((v_ray.dir.y * ray->dir.x) - (ray->dir.y * v_ray.dir.x) == 0)
 		return (-1);
 	t = (v_ray.dir.x * (ray->orig.y - v_ray.orig.y) - v_ray.dir.y * \

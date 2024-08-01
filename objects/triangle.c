@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   triangle.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 22:40:13 by jjhang            #+#    #+#             */
-/*   Updated: 2024/07/31 11:37:39 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/08/01 12:08:26 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "objects.h"
 
-t_triangle	*init_triangle(t_point v, t_point w, t_point l)
+t_triangle	*init_triangle(t_vec v, t_vec w, t_vec l)
 {
 	t_triangle	*tr;
 

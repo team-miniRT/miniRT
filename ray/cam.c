@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cam.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 16:19:57 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/29 17:55:56 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/08/01 12:08:26 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_canvas	canvas_init(int width, int height)
 	return (canvas);
 }
 
-t_camera	camera_init(t_canvas *canvas, t_point orig)
+t_camera	camera_init(t_canvas *canvas, t_vec orig)
 {
 	t_camera	cam;
 	double		focal_len;

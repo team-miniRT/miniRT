@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   vec_utile.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 13:56:53 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/14 22:41:46 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/08/01 12:08:26 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vector.h"
 
-double	point_to_point(t_point p1, t_point p2)
+double	point_to_point(t_vec p1, t_vec p2)
 {
 	double	len;
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_sphere_data.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 12:41:53 by jjhang            #+#    #+#             */
-/*   Updated: 2024/07/31 19:14:36 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/08/01 12:08:05 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_object	*get_sphere_data(t_container **data, char **line)
 {
 	t_object	*obj;
 	t_sphere	*sphere;
-	t_color		reflect;
+	t_vec		reflect;
 
 	(*line) += 2;
 	sphere = (t_sphere *)ft_calloc(1, sizeof(t_sphere));

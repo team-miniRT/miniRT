@@ -6,13 +6,13 @@
 /*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 01:04:42 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/08/01 09:37:23 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/08/01 12:08:26 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "objects.h"
 
-t_plane	*init_plane(t_point point, t_vec normal)
+t_plane	*init_plane(t_vec point, t_vec normal)
 {
 	t_plane	*pl;
 
@@ -39,9 +39,9 @@ double	hit_plane(t_object *pl_obj, t_ray *ray, t_hit_record *rec)
 	if (pl_obj->skin == e_check)
 	{
 		if (checker_point(rec->point))
-			rec->reflect = make_color(1,1,1);
+			rec->reflect = make_color(1, 1, 1);
 		else
-			rec->reflect = make_color(0,0,0);
+			rec->reflect = make_color(0, 0, 0);
 	}
 	else
 		rec->reflect = pl_obj->reflect;

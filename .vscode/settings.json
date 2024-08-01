@@ -1,9 +1,10 @@
 {
     "files.associations": {
-        "rt_parser.h": "c",
-        "minirt.h": "c",
-        "ray.h": "c",
-        "rt_utiles.h": "c",
-        "vector.h": "c"
-    }
+		"rt_parser.h": "c",
+		"minirt.h": "c",
+		"ray.h": "c",
+		"rt_utiles.h": "c",
+		"vector.h": "c",
+		"objects.h": "c"
+	}
 }

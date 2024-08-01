@@ -6,13 +6,13 @@
 /*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 19:19:59 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/07/26 18:33:10 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/08/01 12:08:26 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "objects.h"
 
-int	checker_point(t_point p)
+int	checker_point(t_vec p)
 {
 	int	hap;
 
@@ -36,5 +36,4 @@ int	checker_point(t_point p)
 		return (FALSE);
 	}
 	return (TRUE);
-
 }

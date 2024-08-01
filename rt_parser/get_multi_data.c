@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_multi_data.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 14:14:48 by jjhang            #+#    #+#             */
-/*   Updated: 2024/07/31 11:14:54 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/08/01 12:08:26 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ static void	input_vec_t(int idx, double input, t_vec *vec)
 		vec->z = input;
 }
 
-t_color	get_rgb_color(char *err_point, char **line)
+t_vec	get_rgb_color(char *err_point, char **line)
 {
-	t_color	color;
+	t_vec	color;
 	double	a_color;
 	int		idx;
 	char	*start;
@@ -48,9 +48,9 @@ t_color	get_rgb_color(char *err_point, char **line)
 	return (color);
 }
 
-t_point	get_3d_coordinates(char *err_point, char **line)
+t_vec	get_3d_coordinates(char *err_point, char **line)
 {
-	t_point	coordinates;
+	t_vec	coordinates;
 	int		idx;
 	double	point;
 
