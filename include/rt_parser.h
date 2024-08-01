@@ -6,7 +6,7 @@
 /*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 19:58:15 by jjhang            #+#    #+#             */
-/*   Updated: 2024/08/01 12:08:26 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/08/01 13:41:58 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ typedef struct s_container
 	t_object		*object;
 	t_ray			ray;
 	t_hit_record	rec;
+	double			ratio;
 }	t_container;
 
 typedef struct s_cone
@@ -56,7 +57,7 @@ typedef struct s_cone
 t_container	*minirt_parser(int argc, char *argv[]);
 /* srcs */
 int			is_valid_file(int argc, char *argv[]);
-t_vec		*get_ambient_lightning(char **line);
+t_vec		*get_ambient_lightning(char **line, t_container **data);
 t_camera	*get_camera_data(char **line, t_container **data);
 t_object	*get_triangle_data(t_container **data, char **line);
 t_object	*get_light_data(t_container **data, char **line);
