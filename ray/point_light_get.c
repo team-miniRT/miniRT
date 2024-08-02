@@ -6,7 +6,7 @@
 /*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 02:47:58 by jjhang            #+#    #+#             */
-/*   Updated: 2024/08/01 12:08:05 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/08/01 13:42:07 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_vec	get_diffuse(t_light	*light, t_container *scene, t_vec light_dir)
 	t_vec	diffuse;
 	double	kd;
 
-	kd = fmax(vec_inner_pro(scene->rec.normal, light_dir), 0.0005);
+	kd = fmax(vec_inner_pro(scene->rec.normal, light_dir), scene->ratio);
 	diffuse = vec_mult_scal(light->light_color, kd);
 	return (diffuse);
 }

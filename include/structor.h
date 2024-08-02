@@ -46,20 +46,6 @@ typedef struct s_vec
 	double	z;
 }	t_vec;
 
-//typedef struct s_color
-//{
-//	double	x;
-//	double	y;
-//	double	z;
-//}	t_vec;
-
-//typedef struct s_point
-//{
-//	double	x;
-//	double	y;
-//	double	z;
-//}	t_vec;
-
 typedef struct s_ray
 {
 	t_vec	orig;
