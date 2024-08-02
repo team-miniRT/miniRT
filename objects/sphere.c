@@ -6,7 +6,7 @@
 /*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 17:14:02 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/08/01 12:08:26 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/08/02 22:29:20 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,5 +98,9 @@ double	hit_sphere(t_object *sp_obj, t_ray *ray, t_hit_record *rec)
 	{
 		rec->reflect = sp_obj->reflect;
 	}
+	if (checker_point(rec->point, sp))
+		rec->reflect = make_color(1, 1, 1);
+	else
+		rec->reflect = make_color(0, 0, 0);
 	return (TRUE);
 }
