@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structor.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 19:47:57 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/08/01 12:08:26 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/08/02 10:45:18 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ typedef int	t_object_type;
 # define TRI 4
 # define CONE 5
 
-# define CONE_N 8
+# define CONE_N 4
 
-# define WIDTH 1920
-# define HEIGHT 1080
+# define WIDTH 600
+# define HEIGHT 400
 
 # define EPSILON 1e-6
 # define LUMEN 3
@@ -76,6 +76,7 @@ typedef struct s_camera
 	t_vec	vertical;
 	double	focal_len;
 	t_vec	left_bottom;
+	int		cam_num;
 }	t_camera;
 
 typedef struct s_canvas

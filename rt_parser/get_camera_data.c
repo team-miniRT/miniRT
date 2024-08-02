@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_camera_data.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 04:40:22 by jjhang            #+#    #+#             */
-/*   Updated: 2024/07/26 20:18:02 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/08/02 09:18:50 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,6 @@ t_camera	*get_camera_data(char **line, t_container **data)
 	(*data)->camera->orig = get_3d_coordinates("camera", line);
 	vec = get_vector("camera", line);
 	get_aspect_ratio(vec, line, data);
+	(*data)->camera->cam_num++;
 	return ((*data)->camera);
 }

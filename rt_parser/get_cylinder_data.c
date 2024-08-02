@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_cylinder_data.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 22:08:37 by jjhang            #+#    #+#             */
-/*   Updated: 2024/08/01 12:08:26 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/08/01 14:38:39 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ t_object	*get_cylinder_data(t_container **data, char **line)
 	points = get_3d_coordinates("cylinder", line);
 	points = vec_minus_vec(points, (*data)->camera->orig);
 	vec = get_vector("cylinder", line);
-	meter.x = get_meter(line) / 2;
-	meter.y = get_meter(line);
+	meter.y = get_meter(line) / 2;
+	meter.x = get_meter(line);
 	reflect = get_rgb_color("cylinder", line);
 	obj = object_new(CY, NULL, reflect);
 	obj->element = init_cylinder(vec, points, meter.x, meter.y);
