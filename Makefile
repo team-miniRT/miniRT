@@ -6,7 +6,7 @@
 #    By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/08 20:14:57 by jjhang            #+#    #+#              #
-#    Updated: 2024/08/01 02:52:24 by jjhang           ###   ########.fr        #
+#    Updated: 2024/08/04 22:23:03 by jjhang           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ PARSER_FILES = get_ambient_lightning.c \
 				get_cylinder_data.c \
 				get_light_data.c \
 				get_multi_data.c \
+				get_next_vertex.c \
 				get_plane_data.c \
 				get_single_data.c \
 				get_cone_data.c \
@@ -53,7 +54,6 @@ VEC_FILES = vec_div_mul.c \
 			vec_plus_minus.c \
 			vec_pro.c \
 			vec_unit.c \
-			vec_rotate.c \
 			vec_utile.c \
 			random_in_unit_vec.c
 
