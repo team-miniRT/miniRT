@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_plane_data.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 13:54:06 by jjhang            #+#    #+#             */
-/*   Updated: 2024/08/01 12:08:26 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/08/05 23:09:56 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ t_object	*get_plane_data(t_container **data, char **line)
 	vec = get_vector("plane", line);
 	reflect = get_rgb_color("plane", line);
 	obj = object_new(PL, init_plane(points, vec), reflect);
-	obj->skin = get_skin_type(line);
 	object_addback(&(*data)->object, obj);
 	return (obj);
 }

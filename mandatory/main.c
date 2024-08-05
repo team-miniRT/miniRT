@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 19:56:55 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/08/01 12:08:05 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/08/06 00:48:07 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	main(int argc, char *argv[])
 	data = minirt_parser(argc, argv);
 	if (data == NULL)
 		exit (1);
+	// printf("Camera:"); print_point(data->camera->orig);
 	prt_pixel(&data->vars, data);
 	mlx_put_image_to_window(data->vars.mlx, data->vars.win, \
 							data->vars.img, 0, 0);
