@@ -6,7 +6,7 @@
 /*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 19:58:15 by jjhang            #+#    #+#             */
-/*   Updated: 2024/08/02 09:14:25 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/08/04 22:23:36 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,13 @@ typedef struct s_container
 typedef struct s_cone
 {
 	t_container	*data;
-	t_vec		origin;
+	t_vec		center;
 	t_vec		unit_vec;
 	double		radius;
 	double		height;
 	t_vec		reflect;
+	t_vec		top;
+	t_vec		base_point;
 }	t_cone;
 
 t_container	*minirt_parser(int argc, char *argv[]);
@@ -77,5 +79,6 @@ int			is_comment(char **line);
 void		skip_string(char **line);
 int			get_skin_type(char **line);
 t_img		*get_img_file(t_container **data, char *filepath);
+t_vec		get_next_vertex(int idx, t_cone cone, double radius);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 19:47:57 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/08/02 10:45:18 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/08/04 21:07:59 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ typedef int	t_object_type;
 # define TRI 4
 # define CONE 5
 
-# define CONE_N 4
+# define CONE_N 8
 
-# define WIDTH 600
-# define HEIGHT 400
+# define WIDTH 1920
+# define HEIGHT 1080
 
 # define EPSILON 1e-6
 # define LUMEN 3
@@ -45,6 +45,11 @@ typedef struct s_vec
 	double	y;
 	double	z;
 }	t_vec;
+
+typedef struct s_matrix
+{
+	double	rix[3][3];
+}	t_matrix;
 
 typedef struct s_ray
 {
