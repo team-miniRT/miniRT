@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 19:19:59 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/08/02 22:46:52 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/08/03 23:21:33 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	checker_point(t_vec p, t_sphere *sp)
 	start = vec_minus_vec(start, sp->center);
 	p = vec_minus_vec(p, sp->center);
 	p = vec_minus_vec(p, start);
-	u = eacos(clamp(p.y / sp->radius, -1.0, 1.0)) * 180;
+	u = acos(clamp(p.y / sp->radius, -1.0, 1.0)) * 180;
 	v = atan2(p.x, p.z) * 180;
 	if (u < 0)
 	{
