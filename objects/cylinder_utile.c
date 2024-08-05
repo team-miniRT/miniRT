@@ -6,7 +6,7 @@
 /*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 22:03:48 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/08/05 13:24:46 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/08/05 15:26:55 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,11 +108,13 @@ double	get_meet_point(t_ray v_ray, t_ray *ray)
 			(ray->orig.x - v_ray.orig.x)) / ((v_ray.dir.y * ray->dir.x) - \
 			(ray->dir.y * v_ray.dir.x));
 	}
-	else
+	else if ((v_ray.dir.z * ray->dir.x) - (ray->dir.z * v_ray.dir.x) != 0)
 	{
 		t = (v_ray.dir.x * (ray->orig.z - v_ray.orig.z) - v_ray.dir.z * \
 			(ray->orig.x - v_ray.orig.x)) / ((v_ray.dir.z * ray->dir.x) - \
 			(ray->dir.z * v_ray.dir.x));
 	}
+	else
+		return (-1);
 	return (t);
 }
