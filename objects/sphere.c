@@ -6,7 +6,7 @@
 /*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 17:14:02 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/08/05 12:41:08 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/08/05 16:13:58 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,7 @@ void	calculate_texture_coordinates(t_vec p, t_sphere *sp, \
 {
 	double	theta;
 	double	phi;
-	acos(clamp(p.y / sp->radius, -1.0, 1.0));
-	theta =
+	theta = acos(clamp(p.y / sp->radius, -1.0, 1.0));
 	phi = atan2(p.z, p.x);
 	*u = 1 - (phi + M_PI) / (2 * M_PI);
 	*v = (theta) / M_PI;
@@ -95,12 +94,8 @@ double	hit_sphere(t_object *sp_obj, t_ray *ray, t_hit_record *rec)
 	if (sp_obj->skin == e_img)
 		texture_to_sphere(sp, sp_obj, rec);
 	else
-	{
 		rec->reflect = sp_obj->reflect;
-	}
 	if (checker_point(rec->point, sp))
-		rec->reflect = make_color(1, 1, 1);
-	else
-		rec->reflect = make_color(0, 0, 0);
+		rec->reflect = reverse_color(rec->reflect);
 	return (TRUE);
 }

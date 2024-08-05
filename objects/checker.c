@@ -6,52 +6,46 @@
 /*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 19:19:59 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/08/05 12:43:55 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/08/05 19:04:28 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "objects.h"
 
+t_vec	reverse_color(t_vec	color)
+{
+	t_vec	ret;
+
+	ret.x = 1 - color.x;
+	ret.y = 1 - color.y;
+	ret.z = 1 - color.z;
+	return (ret);
+}
+
 int	checker_point(t_vec p, t_sphere *sp)
 {
 	double	u;
 	double	v;
-	//double	theta;
-	//double	phi;
 	t_vec	start;
 	t_ray	ray;
-	int		hap = 0;
+	int		sum;
 
-
+	sum = 0;
 	ray.dir = make_vec(0, 0, 1);
 	ray.orig = sp->center;
 	start = ray_at(&ray, sp->radius);
 	start = vec_minus_vec(start, sp->center);
 	p = vec_minus_vec(p, sp->center);
-	p = vec_minus_vec(p, start);
-	u = acos(clamp(p.y / sp->radius, -1.0, 1.0)) * 180;
-	v = atan2(p.x, p.z) * 180;
-	if (u < 0)
+	u = acos(p.y / sp->radius) * 2000 / M_PI;
+	v = atan2f(p.x, p.z) * 2000 / M_PI;
+	sum = ((abs((int)u) / 100) + (abs((int)v) / 100)) % 2;
+	if (u * v >= 0)
 	{
-		u *= -1;
-		u += 20;
-	}
-	if (v < 0)
-	{
-		v *= -1;
-		v += 20;
-	}
-	u /= 15;
-	v /= 10;
-	if ((int)u % 4 > 2)
-		hap += 1;
-	if ((int)v % 4 > 2)
-		hap += 1;
-	if (hap != 0)
-	{
-		if (hap > 1)
+		if (sum == 1)
 			return (TRUE);
 		return (FALSE);
 	}
+	if (sum == 1)
+		return (FALSE);
 	return (TRUE);
 }
