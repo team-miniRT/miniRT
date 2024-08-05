@@ -6,7 +6,7 @@
 /*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 17:14:02 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/08/02 22:29:20 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/08/05 12:41:08 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ void	calculate_texture_coordinates(t_vec p, t_sphere *sp, \
 {
 	double	theta;
 	double	phi;
-
-	theta = acos(clamp(p.y / sp->radius, -1.0, 1.0));
+	acos(clamp(p.y / sp->radius, -1.0, 1.0));
+	theta =
 	phi = atan2(p.z, p.x);
 	*u = 1 - (phi + M_PI) / (2 * M_PI);
 	*v = (theta) / M_PI;
