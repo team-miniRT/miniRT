@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_vertex.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 17:20:36 by jjhang            #+#    #+#             */
-/*   Updated: 2024/08/04 22:22:38 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/08/06 14:33:17 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ static t_vec	apply_matrix_to_vector(t_matrix mat, t_vec vec)
 	return (result);
 }
 
-
-static t_matrix create_rotation_matrix(t_vec axis, double angle)
+static t_matrix	create_rotation_matrix(t_vec axis, double angle)
 {
 	t_matrix	mat;
 	double		cos_a;
@@ -50,10 +49,10 @@ static t_matrix create_rotation_matrix(t_vec axis, double angle)
 
 static t_vec	rotate_vector(t_vec vector, t_vec axis, double angle)
 {
-	t_matrix mat;
+	t_matrix	mat;
 
 	mat = create_rotation_matrix(axis, angle);
-	return apply_matrix_to_vector(mat, vector);
+	return (apply_matrix_to_vector(mat, vector));
 }
 
 t_vec	get_next_vertex(int idx, t_cone cone, double radius)

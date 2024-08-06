@@ -3,34 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_camera_data.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 04:40:22 by jjhang            #+#    #+#             */
-/*   Updated: 2024/08/06 01:00:29 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/08/06 14:31:53 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt_parser.h"
-
-// static void	set_cam_data(t_vec vec, double half_width, double half_height, \
-// 							t_container **data)
-// {
-// 	t_vec	w;
-// 	t_vec	u;
-// 	t_vec	v;
-
-// 	w = vec_unit(vec_minus_vec((*data)->camera->orig, vec));
-// 	u = vec_unit(vec_outer_pro(make_vec(0, 1, 0), w));
-// 	v = vec_outer_pro(w, u);
-// 	(*data)->camera->horizontal = vec_mult_scal(u, 2 * half_width);
-// 	(*data)->camera->vertical = vec_mult_scal(v, 2 * half_height);
-// 	(*data)->camera->left_bottom = vec_minus_vec(vec_minus_vec(\
-// 			vec_minus_vec((*data)->camera->orig, \
-// 			vec_div((*data)->camera->horizontal, 2)), \
-// 			vec_div((*data)->camera->vertical, 2)), w);
-// 	(*data)->camera->viewport_h = 1.0 * half_height;
-// 	(*data)->camera->viewport_w = 1.0 * half_width;
-// }
 
 static void	set_cam_data(t_vec vec, double half_width, double half_height, \
 							t_container **data)
@@ -47,7 +27,7 @@ static void	set_cam_data(t_vec vec, double half_width, double half_height, \
 	v = vec_outer_pro(vec, u);
 	(*data)->camera->horizontal = vec_mult_scal(u, 2 * half_width);
 	(*data)->camera->vertical = vec_mult_scal(v, 2 * half_height);
-	(*data)->camera->left_bottom = vec_minus_vec(vec_minus_vec( \
+	(*data)->camera->left_bottom = vec_minus_vec(vec_minus_vec(\
 			vec_minus_vec(make_vec(0, 0, 0), \
 			vec_div((*data)->camera->horizontal, 2)), \
 			vec_div((*data)->camera->vertical, 2)), vec);

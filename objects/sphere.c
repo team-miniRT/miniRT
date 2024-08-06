@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sphere.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 17:14:02 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/08/05 23:09:38 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/08/06 14:29:44 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void	calculate_texture_coordinates(t_vec p, t_sphere *sp, \
 {
 	double	theta;
 	double	phi;
+
 	theta = acos(clamp(p.y / sp->radius, -1.0, 1.0));
 	phi = atan2(p.z, p.x);
 	*u = 1 - (phi + M_PI) / (2 * M_PI);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_cone_data.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 13:48:09 by jjhang            #+#    #+#             */
-/*   Updated: 2024/08/05 21:59:02 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/08/06 14:31:49 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ void	init_cone(t_cone cone)
 {
 	t_object	*temp;
 	t_object	*frist;
-	t_vec 		vec2;
-	t_vec 		vec3;
-	int 		idx;
+	t_vec		vec2;
+	t_vec		vec3;
+	int			idx;
 
 	vec2 = get_next_vertex(0, cone, cone.radius);
 	idx = 0;
@@ -46,7 +46,6 @@ void	init_cone(t_cone cone)
 		idx++;
 	}
 }
-
 
 void	get_cone_data(t_container **data, char **line)
 {
