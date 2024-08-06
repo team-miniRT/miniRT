@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sphere.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 17:14:02 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/08/05 16:13:58 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/08/05 23:09:38 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,9 +93,12 @@ double	hit_sphere(t_object *sp_obj, t_ray *ray, t_hit_record *rec)
 	set_face_normal(ray, rec);
 	if (sp_obj->skin == e_img)
 		texture_to_sphere(sp, sp_obj, rec);
+	else if (sp_obj->skin == e_check)
+	{
+		if (checker_point(rec->point, sp))
+			rec->reflect = reverse_color(rec->reflect);
+	}
 	else
 		rec->reflect = sp_obj->reflect;
-	if (checker_point(rec->point, sp))
-		rec->reflect = reverse_color(rec->reflect);
 	return (TRUE);
 }

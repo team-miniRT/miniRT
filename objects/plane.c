@@ -6,7 +6,7 @@
 /*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 01:04:42 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/08/03 23:21:16 by jjhang           ###   ########.fr       */
+/*   Updated: 2024/08/05 23:55:14 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,6 @@ double	hit_plane(t_object *pl_obj, t_ray *ray, t_hit_record *rec)
 	if (rec->t < rec->tmin || rec->t > rec->tmax)
 		return (FALSE);
 	rec->normal = pl->plane_vec;
-	// if (pl_obj->skin == e_check)
-	// {
-	// 	if (checker_point(rec->point))
-	// 		rec->reflect = make_color(1, 1, 1);
-	// 	else
-	// 		rec->reflect = make_color(0, 0, 0);
-	// }
-	// else
 	rec->reflect = pl_obj->reflect;
 	set_face_normal(ray, rec);
 	return (TRUE);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_multi_data.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 14:14:48 by jjhang            #+#    #+#             */
-/*   Updated: 2024/08/01 12:08:26 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/08/05 23:03:21 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,8 @@ t_vec	get_vector(char *err_point, char **line)
 	if (!(-1 <= vec.y && vec.y <= 1))
 		rt_error_handler(err_point, "invalid format", 1);
 	if (!(-1 <= vec.z && vec.z <= 1))
+		rt_error_handler(err_point, "invalid format", 1);
+	if (vec.x == 0 && vec.y == 0 && vec.z == 0)
 		rt_error_handler(err_point, "invalid format", 1);
 	return (vec);
 }

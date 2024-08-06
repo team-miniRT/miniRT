@@ -6,7 +6,7 @@
 #    By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/08 20:14:57 by jjhang            #+#    #+#              #
-#    Updated: 2024/08/04 22:23:03 by jjhang           ###   ########.fr        #
+#    Updated: 2024/08/05 22:10:27 by jjhang           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -105,7 +105,7 @@ $(LIBFT) :
 
 $(NAME) : $(LIBFT) $(OBJS)
 		@$(CC) $(CFLAGS) -lmlx -framework OpenGL -framework AppKit -L$(LIBFT_DIR) -o $(NAME) $^
-		@echo ✅[miniRT_parser] has been built
+		@echo ✅[miniRT] has been built
 
 $(OBJ_DIR)/%.o : $(PARSER_DIR)/%.c | $(OBJ_DIR)
 		@$(CC) $(CFLAGS) -c -o $@ $< -I $(HEADER_DIR) -I $(LIBFT_DIR)
