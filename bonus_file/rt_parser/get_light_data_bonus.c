@@ -1,0 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_light_data_bonus.c                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/04 05:59:52 by jjhang            #+#    #+#             */
+/*   Updated: 2024/08/06 16:06:37 by yeoshin          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "rt_parser_bonus.h"
+
+t_object	*get_light_data(t_container **data, char **line)
+{
+	t_light		*light;
+	t_object	*obj;
+	t_vec		reflect;
+
+	(*line)++;
+	light = (t_light *)ft_calloc(1, sizeof(t_light));
+	if (light == NULL)
+		rt_error_handler("light", "ft_calloc failed", 9);
+	light->origin = get_3d_coordinates("light", line);
+	light->origin = vec_minus_vec(light->origin, (*data)->camera->orig);
+	light->bright_ratio = get_ratio(line);
+	skip_white_space(line);
+	if (**line != '\0')
+		reflect = get_rgb_color("light", line);
+	else
+		reflect = make_color(255, 255, 255);
+	light->light_color = reflect;
+	obj = object_new(LIGHT_POINT, light, make_color(0, 0, 0));
+	object_addback(&(*data)->light, obj);
+	return (obj);
+}
