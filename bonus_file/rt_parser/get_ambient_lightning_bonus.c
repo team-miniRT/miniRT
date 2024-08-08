@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_ambient_lightning_bonus.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 17:05:14 by jjhang            #+#    #+#             */
-/*   Updated: 2024/08/06 16:06:37 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/08/08 14:14:02 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ t_vec	*get_ambient_lightning(char **line, t_container **data)
 	*ambient = get_rgb_color("ambient", line);
 	*ambient = vec_mult_scal(*ambient, ratio);
 	skip_white_space(line);
+	(*data)->ambient = ambient;
 	return (ambient);
 }

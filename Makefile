@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+         #
+#    By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/08 20:14:57 by jjhang            #+#    #+#              #
-#    Updated: 2024/08/06 16:15:49 by yeoshin          ###   ########.fr        #
+#    Updated: 2024/08/07 06:11:34 by jjhang           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -240,7 +240,7 @@ $(OBJ_DIR) :
 		@mkdir -p $@
 
 bonus : $(LIBFT) $(BONUS_OBJS)
-		@$(CC) $(CFLAGS) -lmlx -framework OpenGL -framework AppKit -L$(LIBFT_DIR) -o $(NAME) $^
+		@$(CC) $(CFLAGS) -pthread -lmlx -framework OpenGL -framework AppKit -L$(LIBFT_DIR) -o $(NAME) $^
 		@echo ✅[miniRT bonus] has been built
 		touch bonus
 
