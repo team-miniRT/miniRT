@@ -6,7 +6,7 @@
 /*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 17:14:02 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/08/06 16:06:37 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/08/08 14:59:46 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ double	hit_sphere(t_object *sp_obj, t_ray *ray, t_hit_record *rec)
 	rec->normal = vec_unit(vec_div(vec_minus_vec(rec->point, sp->center), \
 							sp->radius));
 	set_face_normal(ray, rec);
+	rec->reflect = sp_obj->reflect;
 	if (sp_obj->skin == e_img)
 		texture_to_sphere(sp, sp_obj, rec);
 	else if (sp_obj->skin == e_check)
@@ -99,7 +100,5 @@ double	hit_sphere(t_object *sp_obj, t_ray *ray, t_hit_record *rec)
 		if (checker_point(rec->point, sp))
 			rec->reflect = reverse_color(rec->reflect);
 	}
-	else
-		rec->reflect = sp_obj->reflect;
 	return (TRUE);
 }

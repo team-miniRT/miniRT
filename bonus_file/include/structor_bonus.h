@@ -6,7 +6,7 @@
 /*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 19:47:57 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/08/06 16:08:10 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/08/08 21:50:26 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef int	t_object_type;
 # define TRI 4
 # define CONE 5
 
-# define CONE_N 8
+# define CONE_N 4
 
 # define WIDTH 1920
 # define HEIGHT 1080
