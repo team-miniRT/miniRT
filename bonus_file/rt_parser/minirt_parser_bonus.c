@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minirt_parser_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 19:57:40 by jjhang            #+#    #+#             */
-/*   Updated: 2024/08/06 16:06:37 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/08/08 14:15:44 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	obj_turnout(char **line, t_container **data)
 {
 	if (**line == 'A' && (*data)->ambient == NULL)
-		(*data)->ambient = get_ambient_lightning(line, data);
+		get_ambient_lightning(line, data);
 	else if ((**line == 'A' && (*data)->ambient != NULL))
 		rt_error_handler("ambient light", "only a argument is required.", 9);
 	else if (**line == 'C' && (*data)->camera->cam_num == 0)
@@ -40,12 +40,15 @@ static void	obj_turnout(char **line, t_container **data)
 
 static void	input_data(char *line, t_container **data)
 {
-	while (*line != '\0')
+	char	*temp;
+
+	temp = line;
+	while (*temp != '\0')
 	{
-		skip_white_space(&line);
-		if (*line == '\0')
+		skip_white_space(&temp);
+		if (*temp == '\0')
 			return ;
-		obj_turnout(&line, data);
+		obj_turnout(&temp, data);
 	}
 }
 
@@ -83,6 +86,7 @@ static void	set_container(char *filename, t_container **data)
 		line = NULL;
 		idx++;
 	}
+	close(fd);
 	is_valid_rt_file(*data);
 }
 

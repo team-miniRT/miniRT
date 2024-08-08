@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rt_parser_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 19:58:15 by jjhang            #+#    #+#             */
-/*   Updated: 2024/08/06 16:08:53 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/08/07 04:51:10 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include <string.h>
 # include <errno.h>
 # include <fcntl.h>
+# include <pthread.h>
 # include "libft.h"
 # include "structor_bonus.h"
 # include "ray_bonus.h"

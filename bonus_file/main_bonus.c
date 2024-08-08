@@ -3,18 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 19:56:55 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/08/06 16:06:37 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/08/08 14:24:38 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt_bonus.h"
-
-void	prt_pixel(t_vars *vars, t_container *scene);
-void	calc_color(t_container *scene, double pixel_x, \
-					double pixel_y, t_vars *vars);
 
 void	print_color(t_vec *color, int pixel_x, int pixel_y, t_vars *vars)
 {
@@ -28,38 +24,6 @@ void	print_color(t_vec *color, int pixel_x, int pixel_y, t_vars *vars)
 	blue = (int)((color->z) * (255.999));
 	num = red + green + blue;
 	my_mlx_pixel_put(vars, pixel_x, pixel_y, num);
-}
-
-int	main(int argc, char *argv[])
-{
-	t_container	*data;
-
-	data = minirt_parser(argc, argv);
-	if (data == NULL)
-		exit (1);
-	prt_pixel(&data->vars, data);
-	mlx_put_image_to_window(data->vars.mlx, data->vars.win, \
-							data->vars.img, 0, 0);
-	mlx_key_hook(data->vars.win, key_hook, &data->vars);
-	mlx_hook(data->vars.win, 17, 0, exit_hook, 0);
-	mlx_loop(data->vars.mlx);
-	exit (0);
-}
-
-void	prt_pixel(t_vars *vars, t_container *scene)
-{
-	double		pixel_x;
-	double		pixel_y;
-
-	pixel_y = -1;
-	while (++pixel_y < scene->canvas.height)
-	{
-		pixel_x = -1;
-		while (++pixel_x < scene->canvas.width)
-		{
-			calc_color(scene, pixel_x, pixel_y, vars);
-		}
-	}
 }
 
 t_vec	calc_color_point(t_container *scene, double pixel_x, double pixel_y)
@@ -90,4 +54,36 @@ void	calc_color(t_container *scene, double pixel_x, \
 	pixel_color2 = vec_plus_vec(pixel_color1, pixel_color2);
 	pixel_color2 = vec_mult_scal(pixel_color2, 0.25);
 	print_color(&pixel_color2, pixel_x, pixel_y, vars);
+}
+
+void	prt_pixel(t_vars *vars, t_container *scene)
+{
+	double		pixel_x;
+	double		pixel_y;
+
+	pixel_y = -1;
+	while (++pixel_y < scene->canvas.height)
+	{
+		pixel_x = -1;
+		while (++pixel_x < scene->canvas.width)
+		{
+			calc_color(scene, pixel_x, pixel_y, vars);
+		}
+	}
+}
+
+int	main(int argc, char *argv[])
+{
+	t_container	*data;
+
+	data = minirt_parser(argc, argv);
+	if (data == NULL)
+		exit (1);
+	prt_pixel(&data->vars, data);
+	mlx_put_image_to_window(data->vars.mlx, data->vars.win, \
+							data->vars.img, 0, 0);
+	mlx_key_hook(data->vars.win, key_hook, &data->vars);
+	mlx_hook(data->vars.win, 17, 0, exit_hook, 0);
+	mlx_loop(data->vars.mlx);
+	exit (0);
 }

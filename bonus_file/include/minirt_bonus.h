@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   minirt_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 09:45:25 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/08/06 16:08:10 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/08/08 07:44:20 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIRT_BONUS_H
 # define MINIRT_BONUS_H
 
+# include <pthread.h>
 # include "rt_parser_bonus.h"
 
 # define RED 0

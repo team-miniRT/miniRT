@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_bonus.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:55:51 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/08/06 16:08:10 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/08/08 12:36:35 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,5 @@ t_vec		phong_lighting(t_container	*scene);
 double		in_shadow(t_object *objs, t_ray light_ray, double light_len);
 t_vec		get_color_from_texture(t_img *img, double u, double v);
 t_vec		point_light_get(t_container *scene, t_light *light);
+
 #endif

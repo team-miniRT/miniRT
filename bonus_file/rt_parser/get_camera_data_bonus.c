@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_camera_data_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 04:40:22 by jjhang            #+#    #+#             */
-/*   Updated: 2024/08/06 16:06:37 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/08/08 14:24:18 by jjhang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,6 @@ t_camera	*get_camera_data(char **line, t_container **data)
 	t_vec		vec;
 
 	(*line)++;
-	(*data)->camera = (t_camera *)ft_calloc(1, sizeof(t_camera));
-	if ((*data)->camera == NULL)
-		rt_error_handler("camera", "ft_calloc failed", 9);
 	(*data)->camera->orig = get_3d_coordinates("camera", line);
 	vec = get_vector("camera", line);
 	get_aspect_ratio(vec, line, data);
