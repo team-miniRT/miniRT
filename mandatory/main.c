@@ -6,7 +6,7 @@
 /*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 19:56:55 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/08/06 14:28:20 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/08/08 13:10:43 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,15 +79,7 @@ void	calc_color(t_container *scene, double pixel_x, \
 					double pixel_y, t_vars *vars)
 {
 	t_vec	pixel_color1;
-	t_vec	pixel_color2;
 
-	pixel_color1 = calc_color_point(scene, pixel_x + 0.4999, pixel_y + 0.4999);
-	pixel_color2 = calc_color_point(scene, pixel_x, pixel_y + 0.4999);
-	pixel_color2 = vec_plus_vec(pixel_color1, pixel_color2);
 	pixel_color1 = calc_color_point(scene, pixel_x, pixel_y);
-	pixel_color2 = vec_plus_vec(pixel_color1, pixel_color2);
-	pixel_color1 = calc_color_point(scene, pixel_x + 0.4999, pixel_y);
-	pixel_color2 = vec_plus_vec(pixel_color1, pixel_color2);
-	pixel_color2 = vec_mult_scal(pixel_color2, 0.25);
-	print_color(&pixel_color2, pixel_x, pixel_y, vars);
+	print_color(&pixel_color1, pixel_x, pixel_y, vars);
 }

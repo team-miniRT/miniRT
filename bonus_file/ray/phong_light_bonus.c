@@ -6,7 +6,7 @@
 /*   By: yeoshin <yeoshin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 00:19:49 by yeoshin           #+#    #+#             */
-/*   Updated: 2024/08/06 16:06:37 by yeoshin          ###   ########.fr       */
+/*   Updated: 2024/08/08 13:38:53 by yeoshin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ t_vec	phong_lighting(t_container	*scene)
 			point_light_get(scene, lights->element));
 		lights = lights->next;
 	}
-	if (vec_len(light_color) != 0)
-		light_color = vec_plus_vec(light_color, *scene->ambient);
+	light_color = vec_plus_vec(light_color, *scene->ambient);
 	return (vec_min(vec_mult_vec(light_color, scene->rec.reflect), \
 	make_color(1, 1, 1)));
 }
