@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jjhang <jjhang@student.42seoul.kr>         +#+  +:+       +#+         #
+#    By: duckgi <duckgi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/08 21:36:55 by jjhang            #+#    #+#              #
-#    Updated: 2024/07/01 00:58:23 by jjhang           ###   ########.fr        #
+#    Updated: 2024/07/31 22:45:51 by duckgi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = #-Wall -Wextra -Werror
 NAME = libft.a
 
 SRCS = ft_isalpha.c \
